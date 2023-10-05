@@ -8,8 +8,8 @@ function AchievementCard({Img,Clgname,Prize,Name,Committee,Portfolio}) {
         </div>
         <div className="content">
             <h2>{Clgname}</h2> <br />
-            <p><h4>{Prize}</h4></p>
-            <h5>{Name}<br /> Committee - {Committee} <br /> Portfolio - {Portfolio} </h5>
+            <p><h4 className="font-bold">{Prize}</h4></p>
+            <h5>{Name}<br />{Committee} <br />{Portfolio} </h5>
         </div>
     </div>
   )
