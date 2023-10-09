@@ -14,7 +14,7 @@ let timelineElements = [
         month: "April",
         agenda: "The Six Day War 1967",
         description: "This engaging simulation was aimed at building quick thinking ability among participants. Delegates were presented with wide range of situations to test their presence of mind.",
-        winners: "Arab Coalation",
+        winners: "Winner - Arab Coalation",
         icon: "MUNSOC",
     },
     {
@@ -50,7 +50,7 @@ let timelineElements = [
         month: "August",
         agenda: "World War 2",
         description: "This event was a retake on the infamous World War 2. The axis and allied powers battled it out to win the war with unique strategies",
-        winners: "The Axis Powers - They nuked major allied countries and won the war before allied powers could develop their own nuclear weapons.",
+        winners: "Winner - The Axis Powers => They nuked major allied countries and won the war before allied powers could develop their own nuclear weapons.",
         icon: "MUNSOC",
     },
     {
