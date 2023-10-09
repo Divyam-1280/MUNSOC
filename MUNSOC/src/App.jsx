@@ -3,6 +3,7 @@ import Bgvid from '../src/assets/YouCut_20230707_154954011.mp4'
 import Header from './components/Header'
 import HomeHero from './components/HomeHero'
 import Achievements from './components/Achievements'
+import Activity from './components/Activity'
 
 function App() {
 
@@ -16,6 +17,9 @@ function App() {
       </section>
       <section>
       <Achievements/>
+      </section>
+      <section>
+        <Activity/>
       </section>
     </div>
   )

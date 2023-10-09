@@ -113,5 +113,11 @@
     color: #000000;
     font-size: 1.05em;
   }
+  .activity{
+    background: linear-gradient(to bottom right, #000000, rgba(0, 0, 0, 0.854), #000000, rgba(0, 0, 0, 0.854), #000000,rgba(0, 0, 0, 0.854), #000000,  rgba(0, 0, 0, 0.854), #000000);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    border: solid 7px black;
+  }
 
 }
