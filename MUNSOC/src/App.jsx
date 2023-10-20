@@ -4,6 +4,7 @@ import Header from './components/Header'
 import HomeHero from './components/HomeHero'
 import Achievements from './components/Achievements'
 import Activity from './components/Activity'
+import Documents from './components/Documents'
 
 function App() {
 
@@ -20,6 +21,9 @@ function App() {
       </section>
       <section>
         <Activity/>
+      </section>
+      <section>
+        <Documents/>
       </section>
     </div>
   )
