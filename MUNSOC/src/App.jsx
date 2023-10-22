@@ -5,6 +5,7 @@ import HomeHero from './components/HomeHero'
 import Achievements from './components/Achievements'
 import Activity from './components/Activity'
 import Documents from './components/Documents'
+import About from './components/About'
 
 function App() {
 
@@ -24,6 +25,9 @@ function App() {
       </section>
       <section>
         <Documents/>
+      </section>
+      <section>
+        <About/>
       </section>
     </div>
   )
