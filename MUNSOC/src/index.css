@@ -142,4 +142,12 @@
     background: url("./../src/assets/CardBg.jpg");
     background-size: contain;
   }
+  .my-carousel::-webkit-scrollbar {
+    width: 0.5em; /* Adjust the width as needed */
+  }
+  
+  .my-carousel::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Adjust the background color as needed */
+    border: none;
+  }
 }
