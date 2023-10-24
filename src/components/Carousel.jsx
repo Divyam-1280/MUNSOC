@@ -13,7 +13,7 @@ function Carousel() {
     <div className="mt-40 mb-40 my-carousel overflow-x-scroll flex">
         <CarouselCard Img={Mouni} Name={"Mouni Sanapala"} Position={"President"} />
         <CarouselCard Img={Chai} Name={"Chaitanya Raj"} Position={"Secretary General"}/>
-        <CarouselCard Img={Varun} Name={"Varun Srivastava"} Position={"Charge D' Affairs"}/>
+        <CarouselCard Img={Varun} Name={"Varun Srivastava"} Position={"Chargé D' Affairs"}/>
         <CarouselCard Img={Divyam} Name={"Divyam Raj Singh"} Position={"Under Secretary"}/>
         <CarouselCard Img={Priyanshu} Name={"Priyanshu Das"} Position={"Under Secretary"}/>
         <CarouselCard Img={Ananya} Name={"Ananya Shankar"} Position={"Treasurer"}/>
