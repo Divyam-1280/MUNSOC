@@ -14,7 +14,7 @@ let timelineElements = [
         month: "April",
         agenda: "The Six Day War 1967",
         description: "This engaging simulation was aimed at building quick thinking ability among participants. Delegates were presented with wide range of situations to test their presence of mind.",
-        winners: "Winner - Arab Coalation",
+        winners: "Winner - Arab Coalition",
         icon: "MUNSOC",
     },
     {
@@ -23,7 +23,7 @@ let timelineElements = [
         month: "May",
         agenda: "Analyzing International Response to Global Outbreaks with special emphasis to Ebola and SARS and finding the way forward.",
         description: "The WHO committee had participants deliberating towards ideas to prevent any future pandemic while taking case of SARS and EBOLA over the years.",        
-        winners: "Winner - Divyam Raj Singh. Runner up - Varun Srivastava",
+        winners: "Winner - Divyam Raj Singh , Runner up - Varun Srivastava",
         icon: "MUNSOC",
     },
     {
