@@ -6,7 +6,7 @@ import AchievementRow2 from './AchievementRow2'
 
 function Achievements() {
   return (
-    <section className="h-full achievements flex flex-col">
+    <section className="h-full achievements flex flex-col cursor-default">
         <div className="flex justify-between w-full h-[15%]" id="Achievements" >
             <div>
                 <div className="hor-stripe1 my-5 mx-2 h-[8px] md:w-[200px] w-[100px] " data-aos="fade-right" data-aos-duration="800" data-aos-delay="500"></div>

@@ -6,7 +6,7 @@ import "react-vertical-timeline-component/style.min.css";
 
 function Activity() {
   return (
-    <div className="activity h-full" id="Activity">
+    <div className="activity h-full cursor-default" id="Activity">
         <div className="md:text-6xl text-xl flex justify-center mb-20 mt-6 activity-head" data-aos="fade-up" data-aos-duration="800" ><h1 className="text-white">Activity</h1></div>
         <VerticalTimeline className="costum-line font-sans">
             {timelineElements.map((element) => {
