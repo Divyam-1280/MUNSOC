@@ -14,7 +14,7 @@ function Achievements() {
             </div>
             <div className="flex items-center gap-8 my-12 absolute left-[23%] sm:left-[29%]" data-aos="fade-up" data-aos-duration="800">
                 <div><img src={trophy} alt="trophy" className="hidden lg:block w-20" /></div>
-                <div className="achi-head lg:text-6xl md:text-5xl text-xl">Achievements</div>
+                <div className="achi-head lg:text-6xl md:text-5xl text-xl" id="Achievements">Achievements</div>
                 <div><img src={certificate} alt="certificate" className="w-20 hidden lg:block" /></div>
             </div>
             <div>
