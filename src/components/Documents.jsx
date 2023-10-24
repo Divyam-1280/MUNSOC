@@ -2,7 +2,7 @@ import React from 'react'
 import DocumentCard from './DocumentCard'
 import UNlogo from './../assets/UNlogo.png'
 import Timeline from './../assets/timeline.jpg'
-import Partition from './../assets/partition.png'
+import Partition from './../assets/partition.jpg'
 function Documents() {
   return (
     <div className="documents h-full">

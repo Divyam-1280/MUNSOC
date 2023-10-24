@@ -1,6 +1,6 @@
 import React from 'react'
 import AchievementCard from './AchievementCard'
-import Chai2 from './../assets/Chai2.png'
+import Chai2 from './../assets/Chai2.jpg'
 import Bhu from './../assets/bhuimg.jpg'
 
 function AchievementRow2() {

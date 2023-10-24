@@ -2,7 +2,7 @@ import React from 'react'
 import AchievementCard from './AchievementCard'
 import Chai from './../assets/Chai.jpg'
 import Bhub from './../assets/Bhub.jpg'
-import Megh from './../assets/meghalaya.jpeg'
+import Megh from './../assets/meghalaya.jpg'
 
 function AchievementRow1() {
   return (

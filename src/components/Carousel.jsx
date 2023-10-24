@@ -1,12 +1,12 @@
 import React from 'react'
 import ScrollCarousel from 'scroll-carousel';
 import CarouselCard from './CarouselCard';
-import Mouni from './../assets/Mouni.jpeg'
+import Mouni from './../assets/Mouni.jpg'
 import Chai from './../assets/Chai.jpg'
-import Varun from './../assets/varun.jpeg'
-import Divyam from './../assets/divyam.jpeg'
-import Priyanshu from './../assets/priyanshu.jpeg'
-import Ananya from './../assets/ananya.jpeg'
+import Varun from './../assets/varun.jpg'
+import Divyam from './../assets/divyam.jpg'
+import Priyanshu from './../assets/priyanshu.jpg'
+import Ananya from './../assets/ananya.jpg'
 
 function Carousel() {
   return (
