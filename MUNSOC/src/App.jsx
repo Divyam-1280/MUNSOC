@@ -6,6 +6,7 @@ import Achievements from './components/Achievements'
 import Activity from './components/Activity'
 import Documents from './components/Documents'
 import About from './components/About'
+import Contact from './components/Contact'
 
 function App() {
 
@@ -28,6 +29,9 @@ function App() {
       </section>
       <section>
         <About/>
+      </section>
+      <section>
+        <Contact/>
       </section>
     </div>
   )

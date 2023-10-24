@@ -1,5 +1,4 @@
 import React from 'react'
-import Gokhale from './../assets/Gokhale.png'
 function HouseCard({Img,Title,Des,Points}) {
   return (
     <div className="house-card h-[300px] sm:w-[550px] w-[300px] bg-black bg-opacity-70 border-white border rounded-2xl flex hover:scale-105 transition-all duration-300 ease-in-out hover:border-4">

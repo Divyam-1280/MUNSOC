@@ -13,7 +13,7 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
   }
-  .achievements, .documents{
+  .achievements, .documents, .contact{
     background: linear-gradient(to bottom right, rgb(209, 179, 15), #ffee00, rgb(209, 179, 15), #ffee00, rgb(209, 179, 15),#ffee00);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -46,7 +46,7 @@
     border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
   }
-  .achi-head, .docu-head, .about-head, .house-head{
+  .achi-head, .docu-head, .about-head, .house-head, .contact-head{
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
   }
@@ -149,5 +149,9 @@
   .my-carousel::-webkit-scrollbar-thumb {
     background-color: transparent; /* Adjust the background color as needed */
     border: none;
+  }
+  .footer{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
   }
 }

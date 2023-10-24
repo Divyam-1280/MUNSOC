@@ -7,7 +7,7 @@ import Menon from './../assets/Menon.png'
 function HouseSection() {
   return (
     <div className=''>
-        <div className="text-white lg:text-4xl text-3xl w-full flex justify-center items-center house-head underline-offset-4">
+        <div className="text-white lg:text-4xl text-3xl w-full flex justify-center items-center house-head underline-offset-4" data-aos="fade-up" data-aos-duration="800">
             House System
         </div>
         <div className="house-container h-full w-full mt-28 mb-12 lg:flex-row flex flex-col justify-around items-center gap-6">
