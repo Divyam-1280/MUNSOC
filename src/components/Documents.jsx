@@ -5,8 +5,8 @@ import Timeline from './../assets/timeline.jpg'
 import Partition from './../assets/partition.jpg'
 function Documents() {
   return (
-    <div className="documents h-full">
-        <div className="w-full h-24 flex items-center justify-center mt-6" data-aos="fade-up" data-aos-duration="800" id="Documents">
+    <div className="documents h-full" id="Documents">
+        <div className="w-full h-24 flex items-center justify-center mt-6" data-aos="fade-up" data-aos-duration="800" >
           <h1 className="docu-head lg:text-6xl text-4xl">Documents</h1>
         </div>
         <div className="w-full mt-14 mb-20 flex md:flex-row flex-col justify-around items-center">

@@ -6,6 +6,9 @@
 
 
 @layer components{
+  *{
+    scroll-behavior: smooth;
+  }
   .head{
     font-family: 'Young Serif', serif;
   }
