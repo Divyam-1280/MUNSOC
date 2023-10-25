@@ -12,7 +12,7 @@ function Contact() {
         <a href="https://www.linkedin.com/company/munsoc-nita/" className="h-full pl-5 transition-all ease-in-out duration-300 hover:-translate-y-2 cursor-pointer"><div className="h-full cursor-pointer"><img src={LinkedIn} alt="LinkedIn" className="h-full max-md:w-14" /></div></a>
         <a href="https://www.instagram.com/munsoc.nita/" className="h-full pl-5 transition-all ease-in-out duration-300 hover:-translate-y-2 cursor-pointer"><div className="h-full cursor-pointer"><img src={Insta} alt="Insta" className="h-3/4 mt-2 max-md:w-12" /></div></a>
         </div>
-        <div className="sm:text-base absolute bottom-3 right-8 footer text-sm flex cursor-default">Made with ❤️ by Divyam Raj Singh <a href="https://www.linkedin.com/in/divyam-raj-singh-a68813285/"><img src={LinkedIn} alt="LinkedIn" className="w-8 pl-1 -translate-y-[2px] hover:scale-105"/></a></div>
+        <div className="sm:text-base absolute bottom-3 sm:right-8 right-4 footer text-sm flex cursor-default">Made with ❤️ by Divyam Raj Singh <a href="https://www.linkedin.com/in/divyam-raj-singh-a68813285/"><img src={LinkedIn} alt="LinkedIn" className="w-8 pl-1 -translate-y-[2px] hover:scale-105"/></a></div>
     </div>
   )
 }
