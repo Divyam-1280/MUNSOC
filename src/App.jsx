@@ -1,5 +1,5 @@
 import './App.css'
-import Bgvid from '../src/assets/YouCut_20230707_154954011.mp4'
+import Bgvid from '../src/assets/Bgvid.mp4'
 import Header from './components/Header'
 import HomeHero from './components/HomeHero'
 import Achievements from './components/Achievements'
