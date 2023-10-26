@@ -6,10 +6,6 @@
 
 
 @layer components{
-  .total-wrapper{
-    overscroll-behavior: none;
-    overflow: hidden;
-  }
   *{
     scroll-behavior: smooth;
   }
