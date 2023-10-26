@@ -58,7 +58,7 @@ function Header() {
       ))}
       <div className="md:hidden" onClick={()=>setToggle(!toggle)}>
         <HeaderItem name={""}/>
-        <img src={dots} alt="dots" className=" mix-blend-multiply w-7 translate-y-[-8px] bg-transparent" />
+        <img src={dots} alt="dots" className=" mix-blend-multiply w-7 translate-y-[-10px] bg-transparent" />
         {toggle? <div className="absolute mt-3 bg-black/60 rounded-md border-[1px] p-3 border-black/70 translate-x-[-85px]">
         {menu.map((item,index)=>index>2&&(
         <a href={item.id}>
