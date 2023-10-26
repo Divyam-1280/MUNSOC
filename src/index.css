@@ -6,6 +6,9 @@
 
 
 @layer components{
+  .total-wrapper{
+    overscroll-behavior: contain;
+  }
   *{
     scroll-behavior: smooth;
   }
@@ -19,7 +22,7 @@
   .achievements, .documents, .contact{
     background: linear-gradient(to bottom right, rgb(205, 160, 12), #ffd000, rgb(205, 160, 12), #ffd000, rgb(205, 160, 12),#ffd000);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     backdrop-filter: blur(10px);
     overflow: hidden;
     border: 7px solid #000;
@@ -121,9 +124,9 @@
     font-size: 1.05em;
   }
   .activity, .about{
-    background: linear-gradient(to bottom right, #000000, rgba(0, 0, 0, 0.904), #000000, rgba(0, 0, 0, 0.904), #000000,rgba(0, 0, 0, 0.904), #000000,  rgba(0, 0, 0, 0.904), #000000);
+    background: linear-gradient(to bottom right, #000000, rgba(0, 0, 0, 0.880), #000000, rgba(0, 0, 0, 0.880), #000000,rgba(0, 0, 0, 0.880), #000000,  rgba(0, 0, 0, 0.880), #000000);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     border: solid 7px black;
   }
   .activity-head{
