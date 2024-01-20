@@ -20,7 +20,7 @@ function HouseSection() {
           Des={
             "Embodying aggressive diplomacy, named in honor of the esteemed diplomat Vijay Keshav Gokhale. The Gokhale house strives for perfection"
           }
-          Points={"68"}
+          Points={"110"}
           id={"Gokhale"}
         />
         <HouseCard
@@ -29,7 +29,7 @@ function HouseSection() {
           Des={
             "Inspired by diplomat Subrahmanyam Jaishankar, fostering diplomacy, global understanding, and effective communication."
           }
-          Points={"84"}
+          Points={"111 (Winner)"}
           id={"Jaishankar"}
         />
       </div>
@@ -40,7 +40,7 @@ function HouseSection() {
           Des={
             "It is a tribute to Girija Shankar Bajpai, embodies diplomacy, grace and global awareness. Bajpai house has a legacy of excellence"
           }
-          Points={"67"}
+          Points={"81"}
           id={"Bajpai"}
         />
         <HouseCard
@@ -49,7 +49,7 @@ function HouseSection() {
           Des={
             "Named in honour of Mr. Shivashankar Menon. This house advocates for more peaceful and prosperous world through diplomacy"
           }
-          Points={"52"}
+          Points={"55"}
           id={"Menon"}
         />
       </div>
