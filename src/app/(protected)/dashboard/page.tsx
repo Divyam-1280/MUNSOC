@@ -72,7 +72,7 @@ export default async function DashboardPage() {
         </ul>
         <SignOutButton />
         {userDetails.isAdmin && unapprovedPosts.map((post) => (
-          <UnapprovedBlogItem post={post.blogs} author={post.user as SelectUsers} />
+          <UnapprovedBlogItem key={post.blogs.id} post={post.blogs} author={post.user as SelectUsers} />
         ))}
       </div>
     </>
