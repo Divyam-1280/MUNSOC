@@ -111,6 +111,7 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
       description: values.description,
       content: editorContent,
       isDraft: false,
+      isApproved: false,
       authorId: authorId,
       coverImage: imageUrl,
     }
@@ -130,9 +131,9 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
     }
 
     if (update) {
-      toast.success("Blog post updated & published successfully!")
+      toast.success("Blog post updated & sent for approval successfully!")
     } else {
-      toast.success("Blog post published successfully!")
+      toast.success("Blog post sent for approval successfully!")
     }
   }
 
@@ -158,12 +159,12 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 flex flex-col justify-between h-full py-2">
                 <div className="space-y-3">
                   {blogObj &&
-                    <div className="flex flex-wrap justify-between text-sm">
+                    <div className="flex flex-wrap justify-between text-sm gap-x-4">
                       <span>
                         {blogObj?.updatedAt && (`Last updated on: ${dateFormatter.format(blogObj.updatedAt)}`)}
                       </span>
                       <span>
-                        Status: {(blogObj && blogObj.isDraft) && "Draft" || "Published"}
+                        Status: {(blogObj && blogObj.isDraft) && "Draft" || (blogObj && blogObj.isApproved) && "Published" || "Sent for Approval"}
                       </span>
                     </div>
                   }
@@ -251,9 +252,9 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
                     }
                   </div>
                 </div>
-                <div className="space-x-2 flex">
+                <div className="gap-2 flex flex-wrap">
                   <Button disabled={pending} type="submit">
-                    {update && 'Update' || 'Submit'} &amp; Publish
+                    {update && 'Update' || 'Submit'} &amp; Sent for Approval
                   </Button>
                   <Button variant="secondary" disabled={pending} type="button" onClick={form.handleSubmit(onDraft)}>
                     Save as draft
@@ -270,12 +271,12 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 flex flex-col justify-between h-full py-2">
             <div className="space-y-3">
               {blogObj &&
-                <div className="flex flex-wrap justify-between text-sm">
+                <div className="flex flex-col justify-between text-sm">
                   <span>
                     {blogObj?.updatedAt && (`Last updated on: ${dateFormatter.format(blogObj.updatedAt)}`)}
                   </span>
                   <span>
-                    Status: {(blogObj && blogObj.isDraft) && "Draft" || "Published"}
+                    Status: {(blogObj && blogObj.isDraft) && "Draft" || (blogObj && blogObj.isApproved) && "Published" || "Sent for Approval"}
                   </span>
                 </div>
               }
@@ -365,7 +366,7 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
             </div>
             <div className="space-x-2">
               <Button disabled={pending} type="submit">
-                {update && 'Update' || 'Submit'} &amp; Publish
+                {update && 'Update' || 'Submit'} &amp; Send for Approval
               </Button>
               <Button variant="secondary" disabled={pending} type="button" onClick={form.handleSubmit(onDraft)}>
                 Save as draft
