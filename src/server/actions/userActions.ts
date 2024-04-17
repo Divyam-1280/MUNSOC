@@ -2,7 +2,7 @@
 
 import { db } from "@/server/db"
 import { users } from "../db/schema/auth"
-import { eq } from "drizzle-orm"
+import { asc, eq } from "drizzle-orm"
 import { genericError } from "../auth/utils"
 import { revalidatePath } from "next/cache"
 import { z } from "zod"
@@ -34,7 +34,7 @@ export async function updateUserInfo(userInfo: UserInfo, userId: string) {
 }
 
 export async function getUserList() {
-  const data = await db.select().from(users)
+  const data = await db.select().from(users).orderBy(asc(users.name))
   return data
 }
 
