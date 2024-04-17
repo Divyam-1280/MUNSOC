@@ -6,7 +6,7 @@ import { Input } from "../ui/input";
 
 export default function BubbleMenuItems({ editor }: { editor: Editor }) {
   return (
-    <div className="flex items-center bg-background border p-1 rounded-md">
+    <div className="flex items-center bg-background border border-border p-1 rounded-md">
       <Popover>
         <PopoverTrigger asChild>
           <Button

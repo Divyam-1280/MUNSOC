@@ -224,7 +224,7 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
                         <FormLabel>Cover Image</FormLabel>
                         <FormControl>
                           <UploadButton
-                            className="mt-4 ut-button:transition-all ut-button:border ut-button:bg-secondary/55 ut-button:text-sm ut-button:ut-readying:bg-secondary/55 ut-button:text-black dark:ut-button:text-white ut-button:hover:bg-secondary ut-uploading:ut-button:bg-secondary dark:ut-uploading:ut-button:bg-secondary"
+                            className="mt-4 ut-button:transition-all ut-button:border ut-button:border-border ut-button:bg-secondary/55 ut-button:text-sm ut-button:ut-readying:bg-secondary/55 ut-button:text-black dark:ut-button:text-white ut-button:hover:bg-secondary ut-uploading:ut-button:bg-secondary dark:ut-uploading:ut-button:bg-secondary"
                             endpoint="imageUploader"
                             onClientUploadComplete={(res) => {
                               // Do something with the response
@@ -247,7 +247,7 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
                         alt="cover image"
                         height={352}
                         width={360}
-                        className="aspect-video h-56 rounded-md border object-cover"
+                        className="aspect-video h-56 rounded-md border border-border object-cover"
                       />
                     }
                   </div>
@@ -266,7 +266,7 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
         </DialogContent>
       </Dialog>
 
-      <div className="lg:min-w-96 flex flex-col rounded-md mt-2 px-4 py-2 max-lg:flex-grow lg:sticky top-14 max-h-main shadow-sm bg-background border max-lg:hidden sidebar-height">
+      <div className="lg:min-w-96 flex flex-col rounded-md mt-2 px-4 py-2 max-lg:flex-grow lg:sticky top-14 max-h-main shadow-sm bg-background border border-border max-lg:hidden sidebar-height">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 flex flex-col justify-between h-full py-2">
             <div className="space-y-3">
@@ -336,7 +336,7 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
                     <FormLabel>Cover Image</FormLabel>
                     <FormControl>
                       <UploadButton
-                        className="mt-4 ut-button:transition-all ut-button:border ut-button:bg-secondary/55 ut-button:text-sm ut-button:ut-readying:bg-secondary/55 ut-button:text-black dark:ut-button:text-white ut-button:hover:bg-secondary ut-uploading:ut-button:bg-secondary dark:ut-uploading:ut-button:bg-secondary"
+                        className="mt-4 ut-button:transition-all ut-button:border ut-button:border-border ut-button:bg-secondary/55 ut-button:text-sm ut-button:ut-readying:bg-secondary/55 ut-button:text-black dark:ut-button:text-white ut-button:hover:bg-secondary ut-uploading:ut-button:bg-secondary dark:ut-uploading:ut-button:bg-secondary"
                         endpoint="imageUploader"
                         onClientUploadComplete={(res) => {
                           // Do something with the response
@@ -359,7 +359,7 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
                     alt="cover image"
                     height={352}
                     width={360}
-                    className="aspect-video h-56 rounded-md border object-cover"
+                    className="aspect-video h-56 rounded-md border border-border object-cover"
                   />
                 }
               </div>
