@@ -33,7 +33,7 @@ function DemoteForm({ userId }: { userId: string }) {
   )
 }
 
-export default function UserCard({ user }: { user: SelectUsers }) {
+export default function UserCard({ user, children }: { user: SelectUsers, children?: React.ReactNode }) {
 
   return (
     <li className="border border-border p-4 rounded-md h-full space-y-4 hover:bg-secondary/55">
@@ -58,7 +58,7 @@ export default function UserCard({ user }: { user: SelectUsers }) {
             <span className="inline-block text-sm text-muted-foreground w-full truncate">{user.email}</span>
           </div>
           <div className="border border-border rounded-md w-min text-left flex flex-col justify-center items-center px-4 py-2 bg-background">
-            <span className="inline-block font-bold">69+</span>
+            <span className="inline-block font-bold">{children}</span>
             <span className="inline-block text-muted-foreground">Posts</span>
           </div>
         </div>

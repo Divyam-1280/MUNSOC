@@ -1,4 +1,5 @@
 import UserCard from "@/components/dashboard/user-card"
+import { getNumberOfPostsByUserId } from "@/server/actions/blogActions"
 import { getUserList } from "@/server/actions/userActions"
 import { getUserAuth } from "@/server/auth/utils"
 
@@ -14,7 +15,9 @@ export default async function Page() {
           </div>
           <ul className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {userList.filter((user) => user.id !== session?.user.id).map((user) => (
-              <UserCard key={user.id} user={user} />
+              <UserCard key={user.id} user={user}>
+                {getNumberOfPostsByUserId(user.id)}
+              </UserCard>
             ))}
           </ul>
         </div>
