@@ -14,7 +14,7 @@ function PromoteForm({ userId }: { userId: string }) {
 
   return (
     <form action={formAction}>
-      <input hidden value={userId} name="user_id" />
+      <input hidden readOnly value={userId} name="user_id" />
       <Button type="submit">Promote to Admin</Button>
     </form>
   )
@@ -27,7 +27,7 @@ function DemoteForm({ userId }: { userId: string }) {
 
   return (
     <form action={formAction}>
-      <input hidden value={userId} name="user_id" />
+      <input hidden readOnly value={userId} name="user_id" />
       <Button type="submit" variant="destructive">Demote to Author</Button>
     </form>
   )
@@ -36,7 +36,7 @@ function DemoteForm({ userId }: { userId: string }) {
 export default function UserCard({ user, children }: { user: SelectUsers, children?: React.ReactNode }) {
 
   return (
-    <li className="border border-border p-4 rounded-md h-full space-y-4 hover:bg-secondary/55">
+    <li className="border border-border p-4 rounded-md h-full space-y-4 hover:dark:bg-secondary/15 hover:bg-secondary/55">
       <div className="w-full tracking-tight sm:px-1">
         <div className="flex justify-between gap-x-2">
           <div className="size-14 min-w-14 rounded-full border border-border inline-flex bg-secondary items-center justify-center text-muted-foreground overflow-clip">

@@ -13,6 +13,7 @@ export const blogs = pgTable("blogs", {
   authorId: text("author_id").notNull().references(() => users.id),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
+  publishedAt: timestamp('published_at').defaultNow().notNull(),
   likes: integer("likes").default(0).notNull(),
 })
 

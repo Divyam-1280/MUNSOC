@@ -52,7 +52,7 @@ export default function UserDataForm({ session, userData }: { session: AuthSessi
       username: userData.name ?? "",
       bio: userData.bio ?? "",
       urls: [
-        { value: "http://twitter.com/shadcn" },
+        { value: "https://twitter.com/samisthefbi" },
       ],
     },
   })

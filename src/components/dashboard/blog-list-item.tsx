@@ -28,16 +28,26 @@ export default function BlogListItem({ post }: { post: SelectBlogs }) {
   async function handleDeletePost(currentState: { error: string }, formData: FormData) {
     const slug = formData.get('slug') as string
     const error = await deletePost(slug)
-    if (error === undefined) {
+    if (error.error === '') {
       toast.success("Successfully deleted the post!")
     } else {
       toast.error("An error occurred.")
     }
     return error
   }
+
+  let modifiedAtString: string
+  if (post.createdAt !== post.updatedAt)
+    modifiedAtString = 'Last updated on'
+  else
+    modifiedAtString = 'Created on'
+
+  if (post.isApproved)
+    modifiedAtString = 'Published on'
+
   return (
     <>
-      <div className={cn("px-4 py-2 border border-border rounded-sm flex justify-between items-center text-wrap gap-2 hover:bg-secondary", post.isApproved && "border-green-400 dark:border-green-400/55")}>
+      <div className={cn("px-4 py-2 border border-border rounded-sm flex justify-between items-center text-wrap gap-2 dark:hover:bg-secondary/25", post.isApproved && "border-green-400 dark:border-green-400/55")}>
         <div className="inline-flex justify-between items-center flex-grow mr-4 lg:mr-16 max-sm:flex-wrap w-full">
           <Link href={`/edit-post/${post.slug}`} className={`hover:underline group underline-offset-2 inline-flex gap-x-2 items-center ${post.isDraft && `decoration-muted-foreground`}`}>
             {post.isDraft &&
@@ -51,15 +61,13 @@ export default function BlogListItem({ post }: { post: SelectBlogs }) {
             <span className={cn(post.isDraft && 'text-muted-foreground', "max-w-md text-pretty ")}>{post.title}</span>
           </Link>
           <span className="text-muted-foreground text-sm max-sm:text-xs">
-            {post.createdAt.toString() === post.updatedAt.toString() && 'Created at ' || 'Last updated at '}{dateFormatter.format(post.updatedAt)}
+            {modifiedAtString}{' '}{post.isApproved && dateFormatter.format(post.publishedAt) || dateFormatter.format(post.updatedAt)}
           </span>
         </div>
         <div className="inline-flex items-center">
-          {!post.isApproved &&
-            <Link href={`/preview/${post.slug}`} className="p-2 hover:bg-secondary rounded-sm">
-              <LuEye />
-            </Link>
-          }
+          <Link href={post.isApproved && `/blog/${post.slug}` || `/preview/${post.slug}`} className="p-2 hover:bg-secondary rounded-sm">
+            <LuEye />
+          </Link>
           <Dialog>
             <DialogTrigger className="p-2 hover:bg-destructive rounded-sm hover:text-destructive-foreground">
               <AiOutlineDelete />

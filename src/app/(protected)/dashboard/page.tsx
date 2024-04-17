@@ -1,11 +1,7 @@
 import SignOutButton from "@/components/auth/SignOutButton"
-import BlogListItem from "@/components/dashboard/blog-list-item"
-import UserDataForm from "@/components/dashboard/user-data-form"
-import { Button } from "@/components/ui/button"
-import { getAllPosts, getPostsByUserId, getRecentPosts, getUnapprovedPosts, getUserById } from "@/server/actions/blogActions"
+import { getUnapprovedPosts, getUserById } from "@/server/actions/blogActions"
 import { getUserAuth } from "@/server/auth/utils"
 import Link from "next/link"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PiNotePencil, PiNotebookDuotone } from "react-icons/pi";
 import { LuUser, LuUserCog, LuUsers } from "react-icons/lu"
 import UnapprovedBlogItem from "@/components/dashboard/unapproved-post"
@@ -87,10 +83,6 @@ export default async function DashboardPage() {
           }
         </ul>
         <SignOutButton />
-        {userDetails.isAdmin && <h1 className="text-2xl tracking-tighter font-bold">Recent posts by authors:</h1>}
-        {userDetails.isAdmin && unapprovedPosts.map((post) => (
-          <UnapprovedBlogItem key={post.blogs.id} post={post.blogs} author={post.user as SelectUsers} />
-        ))}
       </div>
     </>
   )

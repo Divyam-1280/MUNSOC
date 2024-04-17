@@ -107,7 +107,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             {blogData[0].title}
           </div>
           <div className="text-muted-foreground text-sm">
-            By {author.name} | {blogData[0].updatedAt.toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })} {blogData[0].updatedAt.toString() !== blogData[0].createdAt.toString() && '(updated)'}
+            By {author.name} | Published on {blogData[0].publishedAt.toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
           </div>
           {
             (blogData[0].coverImage?.toString() !== '' && blogData[0].coverImage !== null) &&

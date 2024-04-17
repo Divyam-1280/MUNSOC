@@ -33,17 +33,30 @@ export default function DashboardSidebarItems({ adminSession = false }: { adminS
         </Link>
       </li>
       {adminSession &&
-        <li>
-          <Link
-            href="/dashboard/manage-users"
-            className={cn(
-              "flex items-center gap-x-3 px-4 py-2 rounded-md hover:cursor-pointer hover:bg-primary/15",
-              pathname.includes("/manage-users") && "font-bold border-l-primary border-l-[5px]"
-            )}>
-            <LuUsers />
-            <span>Manage Users</span>
-          </Link>
-        </li>
+        <>
+          <li>
+            <Link
+              href="/dashboard/manage-posts"
+              className={cn(
+                "flex items-center gap-x-3 px-4 py-2 rounded-md hover:cursor-pointer hover:bg-primary/15",
+                pathname.includes("/manage-posts") && "font-bold border-l-primary border-l-[5px]"
+              )}>
+              <LuBook />
+              <span>Manage Posts</span>
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/dashboard/manage-users"
+              className={cn(
+                "flex items-center gap-x-3 px-4 py-2 rounded-md hover:cursor-pointer hover:bg-primary/15",
+                pathname.includes("/manage-users") && "font-bold border-l-primary border-l-[5px]"
+              )}>
+              <LuUsers />
+              <span>Manage Users</span>
+            </Link>
+          </li>
+        </>
       }
       <li>
         <Link

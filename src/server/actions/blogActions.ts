@@ -69,6 +69,11 @@ export async function getAllPosts() {
   return data
 }
 
+export async function getAllPostsWithUser() {
+  const data = await db.select().from(blogs).where(eq(blogs.isDraft, false)).orderBy(desc(blogs.updatedAt)).leftJoin(users, eq(blogs.authorId, users.id))
+  return data
+}
+
 export async function getPostsByUserId(authorId: string) {
   const data = await db.select().from(blogs).where(eq(blogs.authorId, authorId)).orderBy(desc(blogs.updatedAt))
   return data;
@@ -91,10 +96,8 @@ export async function deletePost(slug: string) {
     return genericError
   }
 
-  // todo: please find out why removing redirect angers eslint in blog-list-item.tsx
-  // you don't understand useFormState i think
   revalidatePath("/dashboard")
-  redirect("/dashboard")
+  return { error: '' }
 }
 
 export async function getUserById(id: string) {
@@ -109,13 +112,22 @@ export async function getUnapprovedPosts() {
 
 export async function approvePost(slug: string) {
   try {
-    await db.update(blogs).set({ isApproved: true, createdAt: new Date(), updatedAt: new Date() }).where(eq(blogs.slug, slug))
+    await db.update(blogs).set({ isApproved: true, publishedAt: new Date() }).where(eq(blogs.slug, slug))
   } catch (e) {
     return genericError
   }
 
-  // todo: please find out why removing redirect angers eslint in blog-list-item.tsx
-  // you don't understand useFormState i think
-  revalidatePath("/dashboard")
-  redirect("/dashboard")
+  revalidatePath("/dashboard/manage-posts")
+  redirect("/dashboard/manage-posts")
+}
+
+export async function unpublishPost(slug: string) {
+  try {
+    await db.update(blogs).set({ isApproved: false }).where(eq(blogs.slug, slug))
+  } catch (e) {
+    return genericError
+  }
+
+  revalidatePath("/dashboard/manage-posts")
+  redirect("/dashboard/manage-posts")
 }
