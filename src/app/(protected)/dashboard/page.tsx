@@ -68,21 +68,23 @@ export default async function DashboardPage() {
               </div>
             </Link>
           </li>
-          <li>
-            <Link href="/dashboard/manage-users" className="h-full bg-secondary/55 border border-border hover:border-primary outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary">
-              <div className="bg-background dark:bg-primary dark:text-black p-4 rounded-full antialiased shadow-md dark:shadow-background">
-                <LuUsers size={34} />
-              </div>
-              <div className="flex flex-col space-y-2">
-                <span className="font-bold tracking-tighter leading-tight">
-                  Manage Your Authors
-                </span>
-                <p className="text-pretty text-sm text-muted-foreground pb-3 leading-tight">
-                  Manage your community of authors by choosing who gets to publish posts.
-                </p>
-              </div>
-            </Link>
-          </li>
+          {userDetails.isAdmin &&
+            <li>
+              <Link href="/dashboard/manage-users" className="h-full bg-secondary/55 border border-border hover:border-primary outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary">
+                <div className="bg-background dark:bg-primary dark:text-black p-4 rounded-full antialiased shadow-md dark:shadow-background">
+                  <LuUsers size={34} />
+                </div>
+                <div className="flex flex-col space-y-2">
+                  <span className="font-bold tracking-tighter leading-tight">
+                    Manage Your Authors
+                  </span>
+                  <p className="text-pretty text-sm text-muted-foreground pb-3 leading-tight">
+                    Manage your community of authors by choosing who gets to publish posts.
+                  </p>
+                </div>
+              </Link>
+            </li>
+          }
         </ul>
         <SignOutButton />
         {userDetails.isAdmin && <h1 className="text-2xl tracking-tighter font-bold">Recent posts by authors:</h1>}
