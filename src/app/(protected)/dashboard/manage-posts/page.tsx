@@ -54,13 +54,13 @@ export default async function Page({
                   <li className="flex">
                     <Link href="/dashboard/manage-posts" className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25">
                       <DotFilledIcon className={!unapprovedOnly && "text-foreground" || "text-transparent"} />
-                      Show all posts
+                      All
                     </Link>
                   </li>
                   <li className="flex">
                     <Link href="/dashboard/manage-posts?unapprovedonly=true" className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25">
                       <DotFilledIcon className={unapprovedOnly && "text-foreground" || "text-transparent"} />
-                      Show only approved posts
+                      Unapproved
                     </Link>
                   </li>
                 </ul>
@@ -69,7 +69,7 @@ export default async function Page({
           </div>
           <ul className="w-full space-y-4">
             {unapprovedOnly &&
-              allPosts.filter((post) => post.blogs.isApproved === unapprovedOnly).map((post) => (
+              allPosts.filter((post) => !post.blogs.isApproved === unapprovedOnly).map((post) => (
                 <UnapprovedBlogItem key={post.blogs.id} post={post.blogs} author={post.user as SelectUsers} />
               ))
               ||
