@@ -1,15 +1,11 @@
 import { Editor } from "@tiptap/react";
-import { useCallback, useState } from "react";
 import { Button } from "../ui/button";
-import { CodeIcon, FontBoldIcon, FontItalicIcon, ImageIcon, ListBulletIcon, QuoteIcon, UnderlineIcon } from "@radix-ui/react-icons";
-import { LuHeading1, LuListOrdered, LuRedo, LuStrikethrough, LuUndo } from "react-icons/lu";
 
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
-import { LuLink } from 'react-icons/lu'
 import { Input } from "@/components/ui/input"
 import { UploadButton } from "./uploadthing";
 import { FaBold, FaCode, FaImage, FaItalic, FaListOl, FaListUl, FaQuoteLeft, FaRedo, FaRedoAlt, FaStrikethrough, FaUnderline, FaUndo } from "react-icons/fa";
@@ -18,7 +14,7 @@ import { FaBold, FaCode, FaImage, FaItalic, FaListOl, FaListUl, FaQuoteLeft, FaR
 export default function EditorMenu({ editor }: { editor: Editor }) {
 
   return (
-    <div className="flex items-center gap-x-3 gap-y-2 sm:flex-wrap max-sm:overflow-x-scroll border rounded-md shadow-sm p-2 bg-background z-50">
+    <div className="flex items-center gap-x-3 gap-y-2 sm:flex-wrap max-sm:overflow-x-scroll border border-border rounded-md shadow-sm p-2 bg-background z-50">
       <Popover>
         <PopoverTrigger asChild>
           <Button
