@@ -46,7 +46,7 @@ export default async function SheetMenu({ landingPage = false }: { landingPage?:
             </div>
           </SheetHeader>
           <div className="flex flex-col justify-between h-[calc(100dvh-145px)]">
-            <div className="flex flex-col divide-y mt-2">
+            <div className="flex flex-col divide-y divide-border mt-2">
               {navbarItems.map((item, idx) => (
                 <Link key={idx} href={item.href} className="hover:bg-secondary px-4 py-2 flex justify-start items-center gap-x-4 "><item.icon />{item.name}</Link>
               ))}
