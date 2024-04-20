@@ -1,19 +1,14 @@
 import SignOutButton from "@/components/auth/SignOutButton"
-import BlogListItem from "@/components/dashboard/blog-list-item"
-import UserDataForm from "@/components/dashboard/user-data-form"
-import { Button } from "@/components/ui/button"
-import { getAllPosts, getPostsByUserId, getRecentPosts, getUnapprovedPosts, getUserById } from "@/server/actions/blogActions"
+import { getUnapprovedPosts, getUserById } from "@/server/actions/blogActions"
 import { getUserAuth } from "@/server/auth/utils"
 import Link from "next/link"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { PiNotePencil, PiNotebookDuotone } from "react-icons/pi";
-import { LuUser } from "react-icons/lu"
+import { LuBook, LuBookOpen, LuUser, LuUserCog, LuUsers } from "react-icons/lu"
 import UnapprovedBlogItem from "@/components/dashboard/unapproved-post"
 import { SelectUsers } from "@/server/db/schema/auth"
 
 export default async function DashboardPage() {
   const { session } = await getUserAuth()
-  const postData = await getRecentPosts(4)
   const unapprovedPosts = await getUnapprovedPosts()
   const [userDetails] = await getUserById(session?.user.id as string)
   return (
@@ -25,7 +20,7 @@ export default async function DashboardPage() {
         </div>
         <ul className="gap-y-4 gap-x-6 xl:grid xl:grid-cols-3 xl:grid-rows-1 flex flex-wrap">
           <li>
-            <Link href="/create-post" className="h-full bg-secondary/55 border border-border hover:border-primary outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary">
+            <Link href="/create-post" className="h-full border border-border outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary dark:hover:bg-secondary/25">
               <div className="bg-background dark:bg-primary dark:text-black p-4 rounded-full antialiased shadow-md dark:shadow-background">
                 <PiNotePencil size={34} />
               </div>
@@ -40,13 +35,13 @@ export default async function DashboardPage() {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/posts" className="h-full bg-secondary/55 border border-border hover:border-primary outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary">
+            <Link href="/dashboard/posts" className="h-full border border-border outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary dark:hover:bg-secondary/25">
               <div className="bg-background dark:bg-primary dark:text-black p-4 rounded-full antialiased shadow-md dark:shadow-background">
                 <PiNotebookDuotone size={34} />
               </div>
               <div className="flex flex-col space-y-2">
                 <span className="font-bold tracking-tighter leading-tight">
-                  View All Posts
+                  View Your Posts
                 </span>
                 <p className="text-pretty text-sm text-muted-foreground pb-3 leading-tight">
                   Seeking inspiration? Take a stroll down memory lane and revisit your past posts.
@@ -55,9 +50,9 @@ export default async function DashboardPage() {
             </Link>
           </li>
           <li>
-            <Link href="/dashboard/profile" className="h-full bg-secondary/55 border border-border hover:border-primary outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary">
+            <Link href="/dashboard/profile" className="h-full border border-border outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary dark:hover:bg-secondary/25">
               <div className="bg-background dark:bg-primary dark:text-black p-4 rounded-full antialiased shadow-md dark:shadow-background">
-                <LuUser size={34} />
+                <LuUserCog size={34} />
               </div>
               <div className="flex flex-col space-y-2">
                 <span className="font-bold tracking-tighter leading-tight">
@@ -69,11 +64,42 @@ export default async function DashboardPage() {
               </div>
             </Link>
           </li>
+          {userDetails.isAdmin &&
+            <>
+              <li>
+                <Link href="/dashboard/manage-posts" className="h-full border border-border outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary dark:hover:bg-secondary/25">
+                  <div className="bg-background dark:bg-primary dark:text-black p-4 rounded-full antialiased shadow-md dark:shadow-background">
+                    <LuBook size={34} />
+                  </div>
+                  <div className="flex flex-col space-y-2">
+                    <span className="font-bold tracking-tighter leading-tight">
+                      Manage All Posts
+                    </span>
+                    <p className="text-pretty text-sm text-muted-foreground pb-3 leading-tight">
+                      Seamlessly manage all posts from every author. You approve what shows up on this website&apos;s blog!
+                    </p>
+                  </div>
+                </Link>
+              </li>
+              <li>
+                <Link href="/dashboard/manage-users" className="h-full border border-border outline-primary py-2 px-4 rounded-md overflow-auto space-y-3 space-x-6 flex items-center max-w-sm hover:cursor-pointer hover:bg-secondary dark:hover:bg-secondary/25">
+                  <div className="bg-background dark:bg-primary dark:text-black p-4 rounded-full antialiased shadow-md dark:shadow-background">
+                    <LuUsers size={34} />
+                  </div>
+                  <div className="flex flex-col space-y-2">
+                    <span className="font-bold tracking-tighter leading-tight">
+                      Manage Your Authors
+                    </span>
+                    <p className="text-pretty text-sm text-muted-foreground pb-3 leading-tight">
+                      Effortlessly manage your community of authors by choosing who gets to publish posts.
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            </>
+          }
         </ul>
         <SignOutButton />
-        {userDetails.isAdmin && unapprovedPosts.map((post) => (
-          <UnapprovedBlogItem key={post.blogs.id} post={post.blogs} author={post.user as SelectUsers} />
-        ))}
       </div>
     </>
   )

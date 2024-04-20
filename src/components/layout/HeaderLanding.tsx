@@ -3,8 +3,8 @@ import Navbar from "./Navbar";
 import { getUserAuth } from "@/server/auth/utils";
 import SheetMenu from "./sheet-menu";
 import ThemeDropdown from "./ThemeDropdown";
-import { LuSearch } from "react-icons/lu";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 export default async function Header() {
   const session = await getUserAuth()
@@ -14,6 +14,9 @@ export default async function Header() {
         <div className="max-w-7xl w-full mx-auto p-4 flex h-12 items-center space-x-4 justify-between sm:space-x-0">
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
+              <div className="overflow-clip">
+                <Image src="/MUNSOClogo.png" height={720} width={720} alt="MUNSOC Logo" className="size-8 rounded-sm scale-105" />
+              </div>
               <span className="inline-block font-bold tracking-tight text-white hover:text-primary">MUNSOC</span>
             </Link>
             <div className="flex max-lg:hidden items-center gap-6 justify-between">

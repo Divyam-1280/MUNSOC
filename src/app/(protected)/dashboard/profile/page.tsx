@@ -14,7 +14,7 @@ export default async function DashboardAccountPage() {
         <div className="space-y-2">
           <div className="border-b pb-4">
             <h1 className="text-2xl font-bold">Profile</h1>
-            <p className="text-muted-foreground text-sm">This is how others will see you on the site.</p>
+            <p className="text-muted-foreground text-sm">This is how others will see you on the site. Viewing others profile isn&apos;t possible right now but will be available in upcoming updates.</p>
           </div>
         </div>
         <div>

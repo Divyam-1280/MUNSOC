@@ -43,16 +43,17 @@ const formSchema = z.object({
 export default function UserDataForm({ session, userData }: { session: AuthSession, userData: SelectUsers }) {
   const actualSession = session.session
 
-  const [socials, setSocials] = useState<Array<string>>([])
   const { pending } = useFormStatus()
+
+  const socialUrls = (userData.socialLinks && userData.socialLinks.length > 0) && userData.socialLinks?.map(i => ({ value: i })) || null
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: userData.name ?? "",
       bio: userData.bio ?? "",
-      urls: [
-        { value: "http://twitter.com/shadcn" },
+      urls: socialUrls ?? [
+        { value: "https://twitter.com/samisthefbi" },
       ],
     },
   })
@@ -76,13 +77,15 @@ export default function UserDataForm({ session, userData }: { session: AuthSessi
   }
 
   const [imageUrl, setImageUrl] = useState(userData.avatarUrl)
+  const initials = userData.name?.match(/(\b\S)?/g)?.join("").match(/(^\S|\S$)?/g)?.join("").toUpperCase()
+
 
   return (
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex gap-x-6 flex-wrap">
-            <div className="size-28 bg-secondary rounded-full overflow-clip">
+            <div className="size-28 bg-secondary rounded-full overflow-clip inline-flex items-center justify-center text-muted-foreground">
               {imageUrl !== '' && imageUrl !== null &&
                 <Image
                   src={imageUrl}
@@ -92,6 +95,10 @@ export default function UserDataForm({ session, userData }: { session: AuthSessi
                   className="aspect-video h-28 w-28 object-cover"
                   priority
                 />
+                ||
+                <div className="text-2xl">
+                  {initials}
+                </div>
               }
             </div>
             <div>

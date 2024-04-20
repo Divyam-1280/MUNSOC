@@ -27,7 +27,7 @@ export async function signInAction(
       .from(users)
       .where(eq(users.email, data.email.toLowerCase()))
 
-    if (!existingUser) {
+    if (!existingUser || !existingUser.hashedPassword) {
       return {
         error: "Incorrect credentials!",
       }
@@ -104,7 +104,7 @@ export async function signOutAction(): Promise<ActionResult> {
 
   const sessionCookie = lucia.createBlankSessionCookie();
   setAuthCookie(sessionCookie);
-  redirect("/sign-in");
+  redirect("/");
 }
 
 export async function updateUser(

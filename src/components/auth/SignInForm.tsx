@@ -57,61 +57,6 @@ const SignInForm = () => {
         <div className="px-6 pb-4">
           <OauthOptions />
         </div>
-        <Form {...form}>
-          <form action={formAction}>
-            <CardContent className="grid gap-4">
-              <div className="relative">
-                <div className="absolute inset-0 flex items-center">
-                  <span className="w-full border border-border border-t" />
-                </div>
-                <div className="relative flex justify-center text-xs uppercase">
-                  <span className="bg-background px-2 text-muted-foreground">
-                    Or continue with
-                  </span>
-                </div>
-              </div>
-              <AuthFormError state={state} />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input type="email" placeholder="me@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input type="password" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </CardContent>
-            <CardFooter>
-              <Button disabled={pending} className="w-full" type="submit">Continue</Button>
-            </CardFooter>
-          </form>
-        </Form>
-        <div className="px-8 pb-4 text-center text-sm text-muted-foreground">
-          No account?{" "}
-          <Link
-            href="/sign-up"
-            className="underline underline-offset-4 hover:text-primary"
-          >
-            Sign up
-          </Link>
-        </div>
       </Card>
     </div>
   )
