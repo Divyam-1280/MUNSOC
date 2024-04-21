@@ -34,8 +34,8 @@ export const authenticationSchema = z.object({
 });
 
 export const signUpSchema = z.object({
-  name: z.string().min(1),
-  email: z.string().email().min(5).max(31),
+  name: z.string().min(2).max(50),
+  email: z.string().email().min(5).max(62),
   password: z
     .string()
     .min(4, { message: "must be at least 4 characters long" })
