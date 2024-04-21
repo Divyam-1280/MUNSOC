@@ -45,8 +45,8 @@ export default function UserCard({ user, children }: { user: SelectUsers, childr
               <Image
                 src={user.avatarUrl}
                 alt="pfp"
-                height={128}
-                width={128}
+                height={512}
+                width={512}
                 className="aspect-square h-14 object-cover"
               />
               ||

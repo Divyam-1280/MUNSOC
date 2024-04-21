@@ -21,8 +21,8 @@ export default async function UserPfpBox() {
             <Image
               src={userData.avatarUrl}
               alt="pfp"
-              height={128}
-              width={128}
+              height={512}
+              width={512}
               className="aspect-video h-16 object-cover"
             />
             ||
