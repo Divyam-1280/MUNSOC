@@ -10,7 +10,7 @@ export const blogs = pgTable("blogs", {
   content: text("content").notNull(),
   isDraft: boolean("is_draft").notNull(),
   isApproved: boolean("is_approved").notNull().default(false),
-  authorId: text("author_id").notNull().references(() => users.id),
+  authorId: text("author_id").notNull().references(() => users.id, { onDelete: 'cascade' }),
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
   publishedAt: timestamp('published_at').defaultNow().notNull(),
