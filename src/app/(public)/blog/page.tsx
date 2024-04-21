@@ -85,7 +85,7 @@ export default async function Blog({
             ))}
           </ul>
           ||
-          <p className="text-center">Sorry, we don&apos;t have any posts right now. Come back later or <Link className="underline font-semibold underline-offset-4 hover:decoration-2 decoration-primary" href="/dashboard/create-post">create a post now</Link>.</p>
+          <p className="text-center">Sorry, we don&apos;t have any posts right now. Come back later or <Link className="underline font-semibold underline-offset-4 hover:decoration-2 decoration-primary" href="/create-post">create a post now</Link>.</p>
         }
       </div>
       <Pagination className="mx-auto max-w-2xl">
