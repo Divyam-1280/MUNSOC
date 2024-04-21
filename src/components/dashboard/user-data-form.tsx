@@ -90,8 +90,8 @@ export default function UserDataForm({ session, userData }: { session: AuthSessi
                 <Image
                   src={imageUrl}
                   alt="pfp"
-                  height={112}
-                  width={112}
+                  height={128}
+                  width={128}
                   className="aspect-video h-28 w-28 object-cover"
                   priority
                 />
