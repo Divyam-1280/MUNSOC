@@ -30,7 +30,7 @@ import { toast } from "sonner"
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
-  bio: z.string().min(1).max(64),
+  bio: z.string().min(1).max(150, { message: "It is suggested to limit your bio to 150 words." }),
   urls: z
     .array(
       z.object({
