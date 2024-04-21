@@ -1,19 +1,17 @@
 import CommentCard from "@/components/blog/comment-card"
 import CommentForm from "@/components/blog/comment-form"
 import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Textarea } from "@/components/ui/textarea"
 import { env } from "@/env"
 import { getPostBySlug, getUserById } from "@/server/actions/blogActions"
 import { getCommentsByPostId } from "@/server/actions/commentActions"
+import { getLikesByPost, isAlreadyLiked, likePost, removeLike } from "@/server/actions/postLikeActions"
 import { getUserAuth } from "@/server/auth/utils"
-import { BadgeIcon } from "@radix-ui/react-icons"
 import DOMPurify from "isomorphic-dompurify"
 import { Metadata, ResolvingMetadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { BsFacebook, BsLinkedin, BsReddit, BsTwitterX } from "react-icons/bs"
+import { FaComment, FaHeart, FaRegHeart } from "react-icons/fa"
 
 type Props = {
   params: { slug: string };
@@ -27,9 +25,12 @@ export async function generateMetadata(
   const [post] = await getPostBySlug(params.slug)
   const [author] = await getUserById(post.authorId)
 
-  if (!author || !post) {
-    const boringMetadata = await parent
-    return boringMetadata as Metadata
+  if (!author || !post.isApproved) {
+    const meta404: Metadata = {
+      title: '404 - Not Found',
+      description: 'Sorry we couldn&apos; find what you were looking for.'
+    }
+    return meta404
   }
 
   const postUrl = `${env.LUCIA_AUTH_URL}/blog/${post.slug}`
@@ -87,16 +88,23 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const blogData = await getPostBySlug(params.slug)
-  const { session } = await getUserAuth()
 
-  if (blogData.length === 0 || blogData[0].isDraft)
+  if (!blogData[0].isApproved)
     return (
-      <div>404</div>
+      <>
+        <div className="text-center pt-12 px-8">
+          <p className="tracking-tighter text-8xl/none font-bold">404</p>
+          <p className="text-muted-foreground text-pretty">Sorry we couldn&apos;t find what you were looking for.</p>
+        </div>
+      </>
     )
 
+  const { session } = await getUserAuth()
   const [author] = await getUserById(blogData[0].authorId)
   const blogContent = DOMPurify.sanitize(blogData[0].content)
   const commentData = await getCommentsByPostId(blogData[0].slug)
+  const likes = await getLikesByPost(blogData[0].slug)
+  const isLiked = await isAlreadyLiked(blogData[0].slug, session?.user.id as string)
 
   const postUrl = `${env.LUCIA_AUTH_URL}/blog/${blogData[0].slug}`
   return (
@@ -109,6 +117,24 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div className="text-muted-foreground text-sm">
             By {author.name} | Published on {blogData[0].publishedAt.toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
           </div>
+          <form className="text-muted-foreground flex sm:justify-center items-center gap-x-4" action={isLiked && removeLike || likePost}>
+            <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
+            <input hidden readOnly aria-hidden name="user_id" value={session?.user.id} />
+            <Button type="submit" variant="ghost" className="px-2 space-x-2">
+              {isLiked &&
+                <FaHeart size={20} />
+                ||
+                <FaRegHeart size={20} />
+              }
+              <span className="pt-1">{likes}</span>
+            </Button>
+            <Button type="button" variant="ghost" className="px-2">
+              <a href="#comments" className="space-x-2 flex items-center">
+                <FaComment size={20} />
+                <span className="pt-1">{commentData.length}</span>
+              </a>
+            </Button>
+          </form>
           {
             (blogData[0].coverImage?.toString() !== '' && blogData[0].coverImage !== null) &&
             <Image
@@ -126,17 +152,29 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
           }
         </div>
-        <article className="prose dark:prose-invert mx-auto prose-img:ml-[auto] prose-img:mr-[auto] px-4 prose-a:text-primary prose-blockquote:border-l-primary">
+        <article className="prose dark:prose-invert mx-auto prose-img:ml-[auto] prose-img:mr-[auto] px-4 prose-a:underline prose-a:font-semibold prose-a:underline-offset-4 hover:prose-a:decoration-2 prose-a:decoration-primary/85 prose-blockquote:border-l-primary">
           <div dangerouslySetInnerHTML={{ __html: blogContent }}></div>
         </article>
-        <div className="max-w-2xl mx-auto px-4">
+        <div className="max-w-2xl mx-auto px-4 space-y-2">
           <div className="inset-0 flex items-center">
             <span className="w-full border-t" />
           </div>
           {/*<div className="mx-auto pt-4 flex items-center gap-x-4 text-black dark:text-white">
             <span className="px-3 bg-secondary text-sm py-1 rounded-full border">#TODOtags</span>
           </div>*/}
-          <div className="mx-auto py-4 flex items-center gap-x-4 text-black dark:text-white">
+          <form className="text-muted-foreground gap-x-4" action={isLiked && removeLike || likePost}>
+            <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
+            <input hidden readOnly aria-hidden name="user_id" value={session?.user.id} />
+            <Button type="submit" variant="ghost" className="px-2 space-x-2">
+              {isLiked &&
+                <FaHeart size={20} />
+                ||
+                <FaRegHeart size={20} />
+              }
+              <span className="pt-1">{likes}</span>
+            </Button>
+          </form>
+          <div className="mx-auto pb-4 flex items-center gap-x-4 text-black dark:text-white">
             Share this:
             <Link target="_blank" href={`https://twitter.com/intent/post?text=${blogData[0].title}&url=${postUrl}`} className="border p-2 rounded-md hover:bg-secondary">
               <BsTwitterX />
@@ -152,7 +190,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </Link>
           </div>
         </div>
-        <div className="max-w-2xl mx-auto px-4 flex flex-col justify-start mb-3">
+        <div className="max-w-2xl mx-auto px-4 flex flex-col justify-start mb-3" id="comments">
           <span className="mb-4">
             Comments ({commentData.length})
           </span>
