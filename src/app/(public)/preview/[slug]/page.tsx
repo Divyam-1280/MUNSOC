@@ -28,8 +28,11 @@ export async function generateMetadata(
   const [author] = await getUserById(post.authorId)
 
   if (!author || !post) {
-    const boringMetadata = await parent
-    return boringMetadata as Metadata
+    const meta404: Metadata = {
+      title: '404 - Not Found',
+      description: 'Sorry we couldn&apos; find what you were looking for.'
+    }
+    return meta404
   }
 
   const postUrl = `${env.LUCIA_AUTH_URL}/blog/${post.slug}`
@@ -47,12 +50,12 @@ export async function generateMetadata(
     + '&cover=' + cover
 
   const metadata: Metadata = {
-    title: title + ' • MUNSOC NITA',
+    title: 'Preview - ' + title + ' • MUNSOC NITA',
     description: description,
 
     twitter: {
       card: 'summary_large_image',
-      title: title + ' • MUNSOC NITA',
+      title: 'Preview - ' + title + ' • MUNSOC NITA',
       description: description,
       images: [
         {
@@ -65,7 +68,7 @@ export async function generateMetadata(
       ],
     },
     openGraph: {
-      title: title + ' • MUNSOC NITA',
+      title: 'Preview - ' + title + ' • MUNSOC NITA',
       description: description,
       type: 'article',
       locale: 'en-US',
@@ -124,7 +127,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
           }
         </div>
-        <article className="prose dark:prose-invert mx-auto prose-img:ml-[auto] prose-img:mr-[auto] px-4 prose-a:text-primary prose-blockquote:border-l-primary">
+        <article className="prose dark:prose-invert mx-auto prose-img:ml-[auto] prose-img:mr-[auto] px-4 prose-a:underline prose-a:font-semibold prose-a:underline-offset-4 hover:prose-a:decoration-2 prose-a:decoration-primary/85 prose-blockquote:border-l-primary">
           <div dangerouslySetInnerHTML={{ __html: blogContent }}></div>
         </article>
       </main>

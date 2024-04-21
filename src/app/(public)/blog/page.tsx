@@ -9,9 +9,9 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination"
 import { cn } from "@/lib/utils"
-import Transition from "@/components/motion/transition"
 import { Suspense } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
+import Link from "next/link"
 
 export default async function Blog({
   searchParams
@@ -19,7 +19,6 @@ export default async function Blog({
   searchParams: { [key: string]: number | undefined }
 }) {
   const POST_PER_PAGE = 6
-  const visiblePaginationCnt = 4
   const offset = searchParams.page && (searchParams.page - 1) * POST_PER_PAGE || 0
   const data = await getPostsByOffset(offset, POST_PER_PAGE)
   const count = await getPublishedPostsCount()
@@ -86,7 +85,7 @@ export default async function Blog({
             ))}
           </ul>
           ||
-          <p className="text-center">Sorry, currently there seem to be no posts available right now.</p>
+          <p className="text-center">Sorry, we don&apos;t have any posts right now. Come back later or <Link className="underline font-semibold underline-offset-4 hover:decoration-2 decoration-primary" href="/dashboard/create-post">create a post now</Link>.</p>
         }
       </div>
       <Pagination className="mx-auto max-w-2xl">
