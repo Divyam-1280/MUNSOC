@@ -12,6 +12,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { BsFacebook, BsLinkedin, BsReddit, BsTwitterX } from "react-icons/bs"
 import { FaComment, FaHeart, FaRegHeart } from "react-icons/fa"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 type Props = {
   params: { slug: string };
@@ -104,7 +105,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const blogContent = DOMPurify.sanitize(blogData[0].content)
   const commentData = await getCommentsByPostId(blogData[0].slug)
   const likes = await getLikesByPost(blogData[0].slug)
-  const isLiked = await isAlreadyLiked(blogData[0].slug, session?.user.id as string)
+  let isLiked = false
+  if (session)
+    isLiked = await isAlreadyLiked(blogData[0].slug, session.user.id)
 
   const postUrl = `${env.LUCIA_AUTH_URL}/blog/${blogData[0].slug}`
   return (
@@ -117,24 +120,38 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div className="text-muted-foreground text-sm">
             By {author.name} | Published on {blogData[0].publishedAt.toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
           </div>
-          <form className="text-muted-foreground flex sm:justify-center items-center gap-x-4" action={isLiked && removeLike || likePost}>
-            <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
-            <input hidden readOnly aria-hidden name="user_id" value={session?.user.id} />
-            <Button type="submit" variant="ghost" className="px-2 space-x-2">
-              {isLiked &&
-                <FaHeart size={20} />
-                ||
-                <FaRegHeart size={20} />
-              }
-              <span className="pt-1">{likes}</span>
-            </Button>
-            <Button type="button" variant="ghost" className="px-2">
+          <div className="space-x-4">
+            {session &&
+              <form className="text-muted-foreground flex sm:justify-center items-center gap-x-4" action={isLiked && removeLike || likePost}>
+                <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
+                <input hidden readOnly aria-hidden name="user_id" value={session?.user.id} />
+                <Button type="submit" variant="ghost" className="px-2 space-x-2">
+                  {isLiked &&
+                    <FaHeart size={18} />
+                    ||
+                    <FaRegHeart size={18} />
+                  }
+                  <span className="pt-1">{likes}</span>
+                </Button>
+              </form>
+              ||
+              <Popover>
+                <PopoverTrigger asChild>
+                  <Button variant="ghost" className="px-2 space-x-2">
+                    <FaHeart size={18} />
+                    <span className="pt-1">{likes}</span>
+                  </Button>
+                </PopoverTrigger>
+                <PopoverContent><Link href="/sign-in" className="underline font-semibold underline-offset-4 hover:decoration-2 decoration-primary/85">Sign in</Link> to like blog posts</PopoverContent>
+              </Popover>
+            }
+            <Button type="button" variant="ghost" className="px-2" asChild>
               <a href="#comments" className="space-x-2 flex items-center">
-                <FaComment size={20} />
+                <FaComment size={18} />
                 <span className="pt-1">{commentData.length}</span>
               </a>
             </Button>
-          </form>
+          </div>
           {
             (blogData[0].coverImage?.toString() !== '' && blogData[0].coverImage !== null) &&
             <Image
@@ -159,21 +176,20 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div className="inset-0 flex items-center">
             <span className="w-full border-t" />
           </div>
-          {/*<div className="mx-auto pt-4 flex items-center gap-x-4 text-black dark:text-white">
-            <span className="px-3 bg-secondary text-sm py-1 rounded-full border">#TODOtags</span>
-          </div>*/}
-          <form className="text-muted-foreground gap-x-4" action={isLiked && removeLike || likePost}>
-            <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
-            <input hidden readOnly aria-hidden name="user_id" value={session?.user.id} />
-            <Button type="submit" variant="ghost" className="px-2 space-x-2">
-              {isLiked &&
-                <FaHeart size={20} />
-                ||
-                <FaRegHeart size={20} />
-              }
-              <span className="pt-1">{likes}</span>
-            </Button>
-          </form>
+          {session &&
+            <form className="text-muted-foreground gap-x-4" action={isLiked && removeLike || likePost}>
+              <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
+              <input hidden readOnly aria-hidden name="user_id" value={session.user.id} />
+              <Button type="submit" variant="ghost" className="px-2 space-x-2">
+                {isLiked &&
+                  <FaHeart size={18} />
+                  ||
+                  <FaRegHeart size={18} />
+                }
+                <span className="pt-1">{likes}</span>
+              </Button>
+            </form>
+          }
           <div className="mx-auto pb-4 flex items-center gap-x-4 text-black dark:text-white">
             Share this:
             <Link target="_blank" href={`https://twitter.com/intent/post?text=${blogData[0].title}&url=${postUrl}`} className="border p-2 rounded-md hover:bg-secondary">
@@ -210,7 +226,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 comment={item.comments}
                 user={item.user}
                 blogAuthorId={blogData[0].authorId}
-                currentUserId={session?.user.id}
+                currentUserId={session && session.user.id || null}
               >
               </CommentCard>
             ))}
