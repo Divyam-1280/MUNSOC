@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { getPostsByUserId, getRecentPosts } from "@/server/actions/blogActions"
 import { getUserAuth } from "@/server/auth/utils"
 import Link from "next/link"
+import { FaPen } from "react-icons/fa"
 
 export default async function DashboardPostsPage() {
   const { session } = await getUserAuth()
@@ -15,7 +16,14 @@ export default async function DashboardPostsPage() {
         <div className="space-y-2">
           <div className="flex justify-between">
             <h1 className="text-2xl font-bold">Your Posts {postData.length > 0 && `(${postData.length})`}: </h1>
-            <Button className="font-bold" asChild><Link href="/create-post">Create Post</Link></Button>
+            <div>
+              <Button className="font-bold flex gap-x-2 items-center" asChild>
+                <Link href="/create-post">
+                  <FaPen />
+                  <span className="hidden sm:flex">Create Post</span>
+                </Link>
+              </Button>
+            </div>
           </div>
           <ul className="space-y-2 w-full">
             {postData.length > 0 &&

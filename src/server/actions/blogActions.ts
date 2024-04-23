@@ -118,7 +118,7 @@ export async function approvePost(slug: string) {
   }
 
   revalidatePath("/dashboard/manage-posts")
-  redirect("/dashboard/manage-posts")
+  return { error: '' }
 }
 
 export async function unpublishPost(slug: string) {
@@ -129,5 +129,5 @@ export async function unpublishPost(slug: string) {
   }
 
   revalidatePath("/dashboard/manage-posts")
-  redirect("/dashboard/manage-posts")
+  return { error: '' }
 }

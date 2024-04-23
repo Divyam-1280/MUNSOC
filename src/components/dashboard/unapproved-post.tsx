@@ -29,7 +29,7 @@ function UnpublishPostForm({ postSlug }: { postSlug: string }) {
   async function handleUnpublishPost(currentState: { error: string }, formData: FormData) {
     const slug = formData.get('slug') as string
     const error = await unpublishPost(slug)
-    if (error === undefined) {
+    if (error.error === '') {
       toast.success("Successfully unpublished the post!")
     } else {
       toast.error("An error occurred.")
@@ -53,7 +53,7 @@ function ApprovePostForm({ postSlug }: { postSlug: string }) {
   async function handleApprovePost(currentState: { error: string }, formData: FormData) {
     const slug = formData.get('slug') as string
     const error = await approvePost(slug)
-    if (error === undefined) {
+    if (error.error === '') {
       toast.success("Successfully approved & published the post!")
     } else {
       toast.error("An error occurred.")
@@ -105,7 +105,7 @@ export default function UnapprovedBlogItem({ post, author }: { post: SelectBlogs
 
   return (
     <>
-      <div className="px-4 py-2 border border-border rounded-sm text-wrap gap-2 dark:hover:bg-secondary/25 hover:bg-secondary">
+      <div className={cn("px-4 py-2 border border-border rounded-sm text-wrap gap-2 dark:hover:bg-secondary/25 hover:bg-secondary", post.isApproved && "border-green-400")}>
         <div className="flex justify-between items-center text-wrap gap-2">
           <div className="inline-flex justify-between items-center flex-grow mr-4 lg:mr-16 max-sm:flex-wrap w-full">
             <Link href={post.isApproved && `/blog/${post.slug}` || `/preview/${post.slug}`} target="_blank" className={`hover:underline group underline-offset-2 inline-flex gap-x-2 items-center ${post.isDraft && `decoration-muted-foreground`}`}>

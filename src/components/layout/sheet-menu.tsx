@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/sheet"
 import { HamburgerMenuIcon } from "@radix-ui/react-icons"
 import Link from "next/link"
-import { LuLayoutDashboard, LuLogIn } from "react-icons/lu"
+import { LuLayoutDashboard, LuLogIn, LuLogOut } from "react-icons/lu"
 import { getUserAuth } from "@/server/auth/utils"
 import UserPfpBox from "../dashboard/user-pfp-box"
 import Image from "next/image";
@@ -65,7 +65,7 @@ export default async function SheetMenu({ landingPage = false }: { landingPage?:
                   </div>
                   <form action={signOutAction}>
                     <Button variant="ghost" className="text-left flex justify-start items-center gap-x-4 w-full">
-                      <LuLogIn />
+                      <LuLogOut />
                       Sign Out</Button>
                   </form>
                 </>

@@ -120,9 +120,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div className="text-muted-foreground text-sm">
             By {author.name} | Published on {blogData[0].publishedAt.toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
           </div>
-          <div className="space-x-4">
+          <div className="flex sm:justify-center items-center gap-x-4 text-muted-foreground">
             {session &&
-              <form className="text-muted-foreground flex sm:justify-center items-center gap-x-4" action={isLiked && removeLike || likePost}>
+              <form className="" action={isLiked && removeLike || likePost}>
                 <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
                 <input hidden readOnly aria-hidden name="user_id" value={session?.user.id} />
                 <Button type="submit" variant="ghost" className="px-2 space-x-2">
