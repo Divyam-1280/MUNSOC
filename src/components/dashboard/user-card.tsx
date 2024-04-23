@@ -55,7 +55,7 @@ export default function UserCard({ user, children }: { user: SelectUsers, childr
           </div>
           <div className=" text-left flex flex-col justify-center w-4/6">
             <span className="inline-block font-bold">{user.name !== null && user.name || ''}</span>
-            <span className="inline-block text-sm text-muted-foreground w-full truncate">{user.email}</span>
+            <span className="inline-block text-sm text-muted-foreground truncate w-[15ch]">{user.email}</span>
           </div>
           <div className="border border-border rounded-md w-min text-left flex flex-col justify-center items-center px-4 py-2 bg-background">
             <span className="inline-block font-bold">{children}</span>

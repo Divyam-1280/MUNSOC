@@ -1,15 +1,12 @@
 import SignOutButton from "@/components/auth/SignOutButton"
-import { getUnapprovedPosts, getUserById } from "@/server/actions/blogActions"
+import { getUserById } from "@/server/actions/blogActions"
 import { getUserAuth } from "@/server/auth/utils"
 import Link from "next/link"
 import { PiNotePencil, PiNotebookDuotone } from "react-icons/pi";
-import { LuBook, LuBookOpen, LuUser, LuUserCog, LuUsers } from "react-icons/lu"
-import UnapprovedBlogItem from "@/components/dashboard/unapproved-post"
-import { SelectUsers } from "@/server/db/schema/auth"
+import { LuBook, LuUserCog, LuUsers } from "react-icons/lu"
 
 export default async function DashboardPage() {
   const { session } = await getUserAuth()
-  const unapprovedPosts = await getUnapprovedPosts()
   const [userDetails] = await getUserById(session?.user.id as string)
   return (
     <>

@@ -30,14 +30,12 @@ export default async function Page({
     )
 
   const allPosts = await getAllPostsWithUser()
+  const usersInAvailablePosts = allPosts.map((post) => post.user?.name)
+    .filter((value, index, array) => array.indexOf(value) === index)
+    .sort()
 
-  let unapprovedOnly: boolean
-  if (searchParams?.unapprovedonly == 'true')
-    unapprovedOnly = true
-  else
-    unapprovedOnly = false
+  const filterAuthor = searchParams.author as string ?? ""
 
-  const toggleUrl = "/dashboard/manage-posts" + (!unapprovedOnly && "?unapprovedonly=true" || "")
   return (
     <>
       <div className="space-y-4 p-4 sm:pt-8 w-full max-w-7xl">
@@ -50,32 +48,92 @@ export default async function Page({
                 <span className="max-md:hidden">Filter</span>
               </PopoverTrigger>
               <PopoverContent className="p-1">
-                <ul className="rounded-md overflow-clip">
+                <ul className="rounded-md overflow-clip text-sm">
+                  <li className="flex p-2 pl-4 w-full items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25 border-b border-border">
+                    Post Status
+                  </li>
                   <li className="flex">
-                    <Link href="/dashboard/manage-posts" className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25">
-                      <DotFilledIcon className={!unapprovedOnly && "text-foreground" || "text-transparent"} />
+                    <Link
+                      href={"/dashboard/manage-posts"
+                        + (searchParams.author && `?author=${searchParams.author}` || "")
+                      }
+                      className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25"
+                    >
+                      <DotFilledIcon className={!searchParams.filter && "text-foreground" || "text-transparent"} />
                       All
                     </Link>
                   </li>
                   <li className="flex">
-                    <Link href="/dashboard/manage-posts?unapprovedonly=true" className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25">
-                      <DotFilledIcon className={unapprovedOnly && "text-foreground" || "text-transparent"} />
+                    <Link
+                      href={"/dashboard/manage-posts"
+                        + "?filter=unapproved"
+                        + (searchParams.author && `&author=${searchParams.author}` || "")}
+                      className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25"
+                    >
+                      <DotFilledIcon className={searchParams?.filter == 'unapproved' && "text-foreground" || "text-transparent"} />
                       Unapproved
                     </Link>
                   </li>
+                  <li className="flex">
+                    <Link
+                      href={"/dashboard/manage-posts"
+                        + "?filter=approved"
+                        + (searchParams.author && `&author=${searchParams.author}` || "")}
+                      className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25"
+                    >
+                      <DotFilledIcon className={searchParams?.filter == 'approved' && "text-foreground" || "text-transparent"} />
+                      Approved
+                    </Link>
+                  </li>
+                  <li className="flex p-2 pl-4 w-full items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25 border-t border-b border-border">
+                    Authors
+                  </li>
+                  <li className="flex">
+                    <Link
+                      href={"/dashboard/manage-posts"
+                        + (searchParams.filter && `?filter=${searchParams.filter}` || "")}
+                      className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25"
+                    >
+                      <DotFilledIcon className={!searchParams.author && "text-foreground" || "text-transparent"} />
+                      All
+                    </Link>
+                  </li>
+                  {usersInAvailablePosts.map((user) => (
+                    <li className="flex" key={user}>
+                      <Link
+                        href={"/dashboard/manage-posts"
+                          + (searchParams.filter && `?filter=${searchParams.filter}&` || "?")
+                          + "author=" + user}
+                        className="p-2 w-full inline-flex items-center gap-x-2 hover:bg-secondary dark:hover:bg-secondary/25"
+                      >
+                        <DotFilledIcon className={searchParams?.author == user && "text-foreground" || "text-transparent"} />
+                        {user}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </PopoverContent>
             </Popover>
           </div>
           <ul className="w-full space-y-4">
-            {unapprovedOnly &&
-              allPosts.filter((post) => !post.blogs.isApproved === unapprovedOnly).map((post) => (
+            {
+              searchParams?.filter == 'unapproved' &&
+              allPosts.filter((post) => !post.blogs.isApproved).filter((post) => post.user?.name?.includes(filterAuthor)).map((post) => (
                 <UnapprovedBlogItem key={post.blogs.id} post={post.blogs} author={post.user as SelectUsers} />
               ))
-              ||
-              allPosts.map((post) => (
+            }
+            {
+              searchParams?.filter == 'approved' &&
+              allPosts.filter((post) => post.blogs.isApproved).filter((post) => post.user?.name?.includes(filterAuthor)).map((post) => (
                 <UnapprovedBlogItem key={post.blogs.id} post={post.blogs} author={post.user as SelectUsers} />
-              ))}
+              ))
+            }
+            {
+              !searchParams.filter &&
+              allPosts.filter((post) => post.user?.name?.includes(filterAuthor)).map((post) => (
+                <UnapprovedBlogItem key={post.blogs.id} post={post.blogs} author={post.user as SelectUsers} />
+              ))
+            }
           </ul>
         </div>
       </div>

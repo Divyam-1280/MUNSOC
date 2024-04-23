@@ -49,15 +49,17 @@ export default function BlogListItem({ post }: { post: SelectBlogs }) {
     <>
       <div className={cn("px-4 py-2 border border-border rounded-sm flex justify-between items-center text-wrap gap-2 dark:hover:bg-secondary/25", post.isApproved && "border-green-400 dark:border-green-400/55")}>
         <div className="inline-flex justify-between items-center flex-grow mr-4 lg:mr-16 max-sm:flex-wrap w-full">
-          <Link href={`/edit-post/${post.slug}`} className={`hover:underline group underline-offset-2 inline-flex gap-x-2 items-center ${post.isDraft && `decoration-muted-foreground`}`}>
+          <Link href={post.isApproved && `/blog/${post.slug}` || `/edit-post/${post.slug}`} className={`hover:underline group underline-offset-2 inline-flex gap-x-2 items-center ${post.isDraft && `decoration-muted-foreground`}`}>
             {post.isDraft &&
               <div className={cn(post.isApproved && "bg-green-400 dark:bg-green-400/55" || "bg-muted", " rounded-md p-1 border border-stone-400 dark:border-border")}><LuFileText /></div>
               ||
               <div className={cn(post.isApproved && "bg-green-400 dark:bg-green-400/55" || "bg-muted", " rounded-md p-1 border border-stone-400 dark:border-border")}><LuCheck /></div>
             }
-            <span className="text-muted-foreground text-sm group-hover:flex hidden">
-              <LuPencil />
-            </span>
+            {!post.isApproved &&
+              <span className="text-muted-foreground text-sm group-hover:flex hidden">
+                <LuPencil />
+              </span>
+            }
             <span className={cn(post.isDraft && 'text-muted-foreground', "max-w-md text-pretty ")}>{post.title}</span>
           </Link>
           <span className="text-muted-foreground text-sm max-sm:text-xs">
