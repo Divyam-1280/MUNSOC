@@ -106,6 +106,37 @@ const timelineElements = [
     winners: " ",
     icon: "MUNSOC",
   },
+  {
+    id: 11,
+    title: "Training Period",
+    month: "February 2024",
+    agenda: " ",
+    description:
+      "This month was focused on training the beginners for the upcoming events",
+    winners: " ",
+    icon: "MUNSOC",
+  },
+  {
+    id: 12,
+    title: "Training and IITG MUN ",
+    month: "March 2024",
+    agenda: "",
+    description:
+      "The training continued in this month for participation in the IITG MUN",
+    winners: " ",
+    icon: "MUNSOC",
+  },
+  {
+    id: 13,
+    title: "AAYAM MUN ",
+    month: "April 2024",
+    agenda: "Committees :-  DISEC",
+    description:
+      "The inaugral edition of AAYAM MUN hosted participants from NIT Agartala, the first offline Model United Nations conference of NIT Agartala was a tremendous success with intense deliberations over the course of two days",
+    winners:
+      "Best Delegate - Harshita Shankar, High Commendation - Akmal Hossein, Special Mention - Akshay Kumar Jha",
+    icon: "MUNSOC",
+  },
 ];
 
 export default timelineElements;

@@ -1,7 +1,7 @@
 import Gokhale from "@/assets/Gokhale.png";
 import Jaishankar from "@/assets/Jaishankar.png";
 import Bajpai from "@/assets/Bajpai.png";
-import Menon from "@/assets/Menon.png";
+import Menon from "@/assets/Menon.jpeg";
 
 const houseDetails = [
   {
@@ -32,6 +32,6 @@ const houseDetails = [
     Points: "55",
     id: "Menon",
   },
-]
+];
 
-export default houseDetails
+export default houseDetails;

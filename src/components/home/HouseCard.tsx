@@ -16,7 +16,7 @@ function HouseCard({
   id: string;
 }) {
   return (
-    <div className="house-card h-[300px] sm:w-[550px] w-[300px] bg-black bg-opacity-70 border-white border rounded-2xl flex hover:scale-105 transition-all duration-300 ease-in-out hover:border-4 cursor-pointer pb-6">
+    <div className="house-card h-[300px] sm:w-[550px] w-[300px] bg-black bg-opacity-70 border-white border rounded-2xl flex hover:scale-105 transition-all duration-300 ease-in-out hover:border-4 cursor-pointer pb-6 overflow-hidden">
       <div className="w-1/2 my-auto -ml-4">
         <img src={Img.src} alt={Title} />
       </div>
