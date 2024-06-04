@@ -174,7 +174,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </article>
         <div className="max-w-2xl mx-auto px-4 space-y-2">
           <div className="inset-0 flex items-center">
-            <span className="w-full border-t" />
+            <span className="w-full border-t border-border" />
           </div>
           {session &&
             <form className="text-muted-foreground gap-x-4" action={isLiked && removeLike || likePost}>
@@ -192,16 +192,16 @@ export default async function Page({ params }: { params: { slug: string } }) {
           }
           <div className="mx-auto pb-4 flex items-center gap-x-4 text-black dark:text-white">
             Share this:
-            <Link target="_blank" href={`https://twitter.com/intent/post?text=${blogData[0].title}&url=${postUrl}`} className="border p-2 rounded-md hover:bg-secondary">
+            <Link target="_blank" href={`https://twitter.com/intent/post?text=${blogData[0].title}&url=${postUrl}`} className="border border-border p-2 rounded-md hover:bg-secondary">
               <BsTwitterX />
             </Link>
-            <Link target="_blank" href={`https://www.reddit.com/submit?title=${blogData[0].title}&url=${postUrl}`} className="border p-2 rounded-md hover:bg-secondary">
+            <Link target="_blank" href={`https://www.reddit.com/submit?title=${blogData[0].title}&url=${postUrl}`} className="border border-border p-2 rounded-md hover:bg-secondary">
               <BsReddit />
             </Link>
-            <Link target="_blank" href={`https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`} className="border p-2 rounded-md hover:bg-secondary">
+            <Link target="_blank" href={`https://www.linkedin.com/sharing/share-offsite/?url=${postUrl}`} className="border border-border p-2 rounded-md hover:bg-secondary">
               <BsLinkedin />
             </Link>
-            <Link target="_blank" href={`https://www.facebook.com/sharer.php?t=${blogData[0].title}&u=${postUrl}`} className="border p-2 rounded-md hover:bg-secondary">
+            <Link target="_blank" href={`https://www.facebook.com/sharer.php?t=${blogData[0].title}&u=${postUrl}`} className="border border-border p-2 rounded-md hover:bg-secondary">
               <BsFacebook />
             </Link>
           </div>

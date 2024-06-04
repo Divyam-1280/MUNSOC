@@ -2,13 +2,12 @@
 
 import { SelectUsers } from "@/server/db/schema/auth";
 import { SelectComments } from "@/server/db/schema/comment";
-import { LuDelete, LuFileEdit, LuHeart, LuPencil, LuReply } from "react-icons/lu";
+import { LuPencil } from "react-icons/lu";
 import { Button } from "../ui/button";
 import { FaTrash } from "react-icons/fa";
 import { deleteCommentById, getCommentById, replyToComment, updateCommentById } from "@/server/actions/commentActions";
 import { Textarea } from "../ui/textarea";
-import { useFormState } from "react-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 import {
@@ -38,20 +37,12 @@ export default function CommentCard({
   }
 
   const [childArray, setChildArray] = useState<Array<ReplyType>>()
-
-  // let childArray = []
-  // if (comment.children && comment.children.length > 0) {
-  //   for (const id of comment.children) {
-  //     const [data] = await getCommentById(id)
-  //     childArray.push(data)
-  //   }
-  // }
-
   const [isUpdating, setIsUpdating] = useState(false)
+
   return (
     <>
       <li className="space-y-4">
-        <div className="bg-secondary/15 p-4 border shadow-sm dark:shadow-primary/15 rounded-md space-y-2">
+        <div className="bg-secondary/15 p-4 border border-border shadow-sm dark:shadow-primary/15 rounded-md space-y-2">
           <div className="flex justify-between">
             <span className="space-x-2">
               <span className="font-bold max-sm:text-sm">{user?.name?.split(' ').slice(0, 2).join(' ')}</span>
