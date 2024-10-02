@@ -1,0 +1,51 @@
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { bebas_neue } from "../fonts";
+import BlurFade from "@/components/ui/blur-fade";
+import Transition from "@/components/motion/transition";
+import Munsoc from "../assets/MunsocMain.png"
+import Muniitd from "../assets/MunIITD.jpg"
+
+export default function Hero() {
+  return (
+    <section className="h-dvh bg-[url(https://bestdelegate.com/wp-content/uploads/2017/02/operning-ceremony.jpg)]">
+      <div className="h-full pt-14 sm:pt-14 flex flex-col justify-between items-center pb-6 backdrop-grayscale bg-background/65 bg-center">
+        <div>
+          <Transition>
+            <div className="flex">
+              <Image src={Munsoc} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10" />
+              <Image src={Muniitd} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10 rounded-full" />
+            </div>
+          </Transition>
+          <div className={cn(bebas_neue.className, "flex gap-x-14 flex-wrap justify-center max-sm:pt-12")}>
+            <BlurFade inView>
+              <div className="flex flex-nowrap gap-0 px-4">
+                <h1 className="text-8xl sm:text-[18rem] text-primary">NITA</h1>
+                <h1 className="text-8xl sm:text-[18rem] text-primary">MUN</h1>
+              </div>
+            </BlurFade>
+            <BlurFade delay={0.12} inView>
+              <h1 className="text-8xl sm:text-[18rem] bg-clip-text bg-gradient-to-b from-white via-grey-200 to-gray-500 text-transparent">2.0</h1>
+            </BlurFade>
+          </div>
+          <div className="uppercase text-center px-6 sm:-translate-y-7 text-xl">
+            <BlurFade delay={0.2}>
+              Northeast&apos;s biggest online MUN conference
+            </BlurFade>
+          </div>
+        </div>
+        <BlurFade delay={0.24}>
+          <div className="max-lg:px-6 sm:grid grid-cols-2 max-w-[1320px] w-full">
+            <div className="self-center">
+              <p className="max-lg:hidden text-2xl sm:text-6xl tracking-tighter text-nowrap max-sm:text-center">Join the best of diplomatic minds.</p>
+              <p className="text-xl sm:text-xl uppercase text-nowrap max-sm:text-center">December 13th - 14th @ Online</p>
+            </div>
+            <button className="bg-primary text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end">
+              Registrations Open Soon
+            </button>
+          </div>
+        </BlurFade>
+      </div>
+    </section>
+  )
+}
