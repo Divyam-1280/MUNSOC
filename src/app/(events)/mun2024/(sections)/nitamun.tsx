@@ -8,7 +8,9 @@ export default function Nitamun() {
   return (
     <section className="pt-14 sm:pt-20 max-w-[1370px] w-full mx-auto max-lg:px-6">
       <div className="space-y-6 lg:space-y-10">
-        <h1 className="text-5xl sm:text-6xl tracking-tighter font-bold lg:pl-11">Previously on <span className="text-primary">NITAMUN 1.0</span></h1>
+        <BlurFade inView>
+          <h1 className="text-5xl sm:text-6xl tracking-tighter font-bold lg:pl-11">Previously on <span className="text-primary">NITAMUN 1.0</span></h1>
+        </BlurFade>
       </div>
       <div className="pt-8 lg:pt-14 flex flex-col items-center gap-5">
         <div className="self-start">

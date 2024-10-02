@@ -5,19 +5,24 @@ import BlurFade from "@/components/ui/blur-fade";
 import Transition from "@/components/motion/transition";
 import Munsoc from "../assets/MunsocMain.png"
 import Muniitd from "../assets/MunIITD.jpg"
+import Bg from "../assets/nitamunbg.jpg"
+import Unstop from "../assets/Unstop-Logo-White-Medium.png"
+import { ImCross } from "react-icons/im";
 
 export default function Hero() {
   return (
-    <section className="h-dvh bg-[url(https://bestdelegate.com/wp-content/uploads/2017/02/operning-ceremony.jpg)]">
+    <section className="h-dvh">
+      <Image src={Bg} width={1920} height={1080} alt="bg" className="z-0 absolute h-dvh object-cover object-left" />
       <div className="h-full pt-14 sm:pt-14 flex flex-col justify-between items-center pb-6 backdrop-grayscale bg-background/65 bg-center">
         <div>
           <Transition>
-            <div className="flex">
+            <div className="flex mx-auto w-fit items-center gap-1">
               <Image src={Munsoc} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10" />
+              <ImCross className="-translate-y-6" />
               <Image src={Muniitd} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10 rounded-full" />
             </div>
           </Transition>
-          <div className={cn(bebas_neue.className, "flex gap-x-14 flex-wrap justify-center max-sm:pt-12")}>
+          <div className={cn(bebas_neue.className, "flex gap-x-14 flex-wrap justify-center max-sm:pt-12 lg:-mt-8")}>
             <BlurFade inView>
               <div className="flex flex-nowrap gap-0 px-4">
                 <h1 className="text-8xl sm:text-[18rem] text-primary">NITA</h1>
@@ -28,7 +33,14 @@ export default function Hero() {
               <h1 className="text-8xl sm:text-[18rem] bg-clip-text bg-gradient-to-b from-white via-grey-200 to-gray-500 text-transparent">2.0</h1>
             </BlurFade>
           </div>
-          <div className="uppercase text-center px-6 sm:-translate-y-7 text-xl">
+          <div className="text-center lg:text-right px-6 -translate-y-3 sm:-translate-y-11 text-xl flex justify-end">
+            <BlurFade delay={0.2}>
+              <div className="flex items-center gap-3">
+                Powered by <Image src={Unstop} alt="unstop" width={96} height={34} />
+              </div>
+            </BlurFade>
+          </div>
+          <div className="lg:hidden uppercase text-center px-6 sm:-translate-y-7 text-xl">
             <BlurFade delay={0.2}>
               Northeast&apos;s biggest online MUN conference
             </BlurFade>
