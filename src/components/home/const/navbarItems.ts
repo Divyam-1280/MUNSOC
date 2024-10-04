@@ -1,5 +1,6 @@
 import { ActivityLogIcon } from "@radix-ui/react-icons"
 import { FaHome } from "react-icons/fa"
+import { IoSparklesSharp } from "react-icons/io5"
 import { LuAward, LuBook, LuBookOpen, LuContact, LuHome, LuStickyNote, LuUsers } from "react-icons/lu"
 
 const navbarItems = [
@@ -38,6 +39,11 @@ const navbarItems = [
     name: "Blog",
     icon: LuBookOpen,
   },
+  {
+    href: "/mun2024",
+    name: "NITAMUN",
+    icon: IoSparklesSharp,
+  }
 ]
 
 export default navbarItems
