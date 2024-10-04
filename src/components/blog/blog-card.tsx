@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { LuCalendar } from "react-icons/lu";
 import { RxPerson } from "react-icons/rx";
-import InView from "../motion/in-view";
 
 export default async function BlogCard({ post }: { post: SelectBlogs }) {
   const author = await getAuthorById(post.authorId)
@@ -29,7 +28,7 @@ export default async function BlogCard({ post }: { post: SelectBlogs }) {
         <div className="inline-flex items-start gap-x-4 text-sm text-muted-foreground">
           <span className="flex items-start gap-x-1">
             <LuCalendar size={15} />
-            {post.createdAt.toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
+            {post.publishedAt.toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
           </span>
           <span className="flex items-start gap-x-1">
             <RxPerson size={15} />

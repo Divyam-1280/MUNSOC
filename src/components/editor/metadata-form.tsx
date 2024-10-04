@@ -58,12 +58,14 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
   })
 
   function slugify(title: string) {
+    const length = 72
     const slug = title
       .toLowerCase()
       .trim()
       .replace(/[^\w\s-]/g, '')
       .replace(/[\s_-]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+      .replace(/^-+|-+$/g, '')
+      .substring(0, Math.min(length, title.length))
     form.setValue('slug', slug, { shouldValidate: true })
   }
 
