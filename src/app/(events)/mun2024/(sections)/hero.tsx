@@ -11,12 +11,12 @@ export default function Hero() {
   return (
     <section className="h-svh overflow-x-clip">
       <Image src={Bg} width={1920} height={1080} alt="bg" className="z-0 absolute h-svh object-cover object-left" />
-      <div className="h-full pt-14 sm:pt-14 flex flex-col justify-between items-center pb-6 backdrop-grayscale bg-background/65 bg-center">
+      <div className="h-full pt-14 flex flex-col justify-between items-center pb-6 backdrop-grayscale bg-background/65 bg-center">
         <div>
           <Transition>
             <Image src={Munsoc} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10" />
           </Transition>
-          <div className={cn(bebas_neue.className, "flex gap-x-14 max-sm:flex-col justify-center items-center -gap-y-2 max-sm:pt-12 lg:-mt-8")}>
+          <div className={cn(bebas_neue.className, "flex gap-x-14 max-sm:flex-col justify-center items-center -gap-y-2 max-sm:pt-3 lg:-mt-8")}>
             <BlurFade inView>
               <h1 className="text-8xl sm:text-[18rem] text-transparent bg-clip-text bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600">NITAMUN</h1>
             </BlurFade>
@@ -31,7 +31,7 @@ export default function Hero() {
               </div>
             </BlurFade>
           </div>
-          <div className="uppercase text-center px-6 sm:-translate-y-16 text-xl">
+          <div className="uppercase text-center px-6 sm:-translate-y-16 lg:text-xl">
             <BlurFade delay={0.2}>
               Northeast&apos;s biggest online MUN conference
             </BlurFade>
