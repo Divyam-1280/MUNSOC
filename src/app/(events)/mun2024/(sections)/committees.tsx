@@ -10,7 +10,9 @@ import { bebas_neue } from "../fonts";
 export default function Committees() {
   return (
     <section className="pt-14 max-lg:mb-11 sm:pt-28 h-dvh max-w-[1370px] w-full mx-auto max-lg:px-6">
-      <h1 className="text-5xl sm:text-6xl tracking-tighter">Engage with the 4 committees</h1>
+      <BlurFade inView>
+        <h1 className="text-5xl sm:text-6xl tracking-tighter">Engage with the 4 committees</h1>
+      </BlurFade>
       <div className="flex max-lg:flex-col justify-center items-center lg:items-stretch lg:flex-wrap pt-10 lg:pt-20 gap-4">
         <BlurFade inView>
           <div className="flex items-center gap-x-4 bg-gradient-to-t from-black to-stone-800 border border-border px-3 rounded-xl w-fit pb-4">
