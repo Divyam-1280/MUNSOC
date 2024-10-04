@@ -3,6 +3,7 @@ import Hero from "./(sections)/hero";
 import Prize from "./(sections)/prize";
 import Nitamun from "./(sections)/nitamun";
 import PoweredBy from "./(sections)/powered-by";
+import Deadline from "./(sections)/deadline";
 
 export default function Page() {
   return (

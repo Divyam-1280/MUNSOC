@@ -4,10 +4,8 @@ import { bebas_neue } from "../fonts";
 import BlurFade from "@/components/ui/blur-fade";
 import Transition from "@/components/motion/transition";
 import Munsoc from "../assets/MunsocMain.png"
-import Muniitd from "../assets/MunIITD.jpg"
 import Bg from "../assets/nitamunbg.jpg"
 import Unstop from "../assets/Unstop-Logo-White-Medium.png"
-import { ImCross } from "react-icons/im";
 
 export default function Hero() {
   return (
@@ -36,7 +34,7 @@ export default function Hero() {
               </div>
             </BlurFade>
           </div>
-          <div className="lg:hidden uppercase text-center px-6 sm:-translate-y-7 text-xl">
+          <div className="uppercase text-center px-6 sm:-translate-y-16 text-xl">
             <BlurFade delay={0.2}>
               Northeast&apos;s biggest online MUN conference
             </BlurFade>
@@ -48,8 +46,8 @@ export default function Hero() {
               <p className="max-lg:hidden text-2xl sm:text-6xl tracking-tighter text-nowrap max-sm:text-center">Join the best of diplomatic minds.</p>
               <p className="text-xl sm:text-xl uppercase text-nowrap max-sm:text-center">December 13th - 14th @ Online</p>
             </div>
-            <button className="bg-primary text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end">
-              Registrations Open Soon
+            <button className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end rounded-2xl font-semibold backdrop-blur-xl hover:shadow-lg hover:shadow-yellow-700/60 transition ease-in-out hover:scale-105 border-8 border-black/70">
+              Register Now on Unstop
             </button>
           </div>
         </BlurFade>
