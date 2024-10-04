@@ -46,7 +46,7 @@ export default function Hero() {
               <p className="max-lg:hidden text-2xl sm:text-6xl tracking-tighter text-nowrap max-sm:text-center">Join the best of diplomatic minds.</p>
               <p className="text-xl sm:text-xl uppercase text-nowrap max-sm:text-center">December 13th - 14th @ Online</p>
             </div>
-            <button className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end rounded-2xl font-semibold backdrop-blur-xl hover:shadow-lg hover:shadow-yellow-700/60 transition ease-in-out hover:scale-105 border-8 border-black/70">
+            <button className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end rounded-2xl font-semibold backdrop-blur-xl hover:shadow-lg hover:shadow-stone-900 transition ease-in-out hover:scale-105 border-8 border-black/70">
               Register Now on Unstop
             </button>
           </div>
