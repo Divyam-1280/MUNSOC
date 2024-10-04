@@ -16,11 +16,7 @@ export default function Hero() {
       <div className="h-full pt-14 sm:pt-14 flex flex-col justify-between items-center pb-6 backdrop-grayscale bg-background/65 bg-center">
         <div>
           <Transition>
-            <div className="flex mx-auto w-fit items-center gap-1">
-              <Image src={Munsoc} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10" />
-              <ImCross className="-translate-y-6" />
-              <Image src={Muniitd} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10 rounded-full" />
-            </div>
+            <Image src={Munsoc} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10" />
           </Transition>
           <div className={cn(bebas_neue.className, "flex gap-x-14 flex-wrap justify-center max-sm:pt-12 lg:-mt-8")}>
             <BlurFade inView>
@@ -33,10 +29,10 @@ export default function Hero() {
               <h1 className="text-8xl sm:text-[18rem] bg-clip-text bg-gradient-to-b from-white via-grey-200 to-gray-500 text-transparent">2.0</h1>
             </BlurFade>
           </div>
-          <div className="text-center lg:text-right px-6 -translate-y-3 sm:-translate-y-11 text-xl flex justify-end">
+          <div className="text-center lg:text-right px-6 -translate-y-3 sm:-translate-y-11 text-sm flex justify-center lg:justify-end">
             <BlurFade delay={0.2}>
               <div className="flex items-center gap-3">
-                Powered by <Image src={Unstop} alt="unstop" width={96} height={34} />
+                Powered by <Image src={Unstop} alt="unstop" width={96} height={34} className="h-7 w-auto" />
               </div>
             </BlurFade>
           </div>
