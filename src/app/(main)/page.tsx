@@ -47,7 +47,7 @@ export default async function Home() {
             <br />
             <form action="/mun2024">
               <button type="submit" className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:mt-3 max-sm:text-center mt-6 px-6 py-3 max-sm:mx-auto font-semibold justify-self-end rounded-full backdrop-blur-xl hover:shadow-lg hover:shadow-stone-900 transition ease-in-out hover:scale-105 border-8 border-black/70">
-                Announcing NITAMUN
+                Announcing NITAMUN 2.0
               </button>
             </form>
           </div>
