@@ -18,10 +18,7 @@ export default function Hero() {
           </Transition>
           <div className={cn(bebas_neue.className, "flex gap-x-14 flex-wrap justify-center max-sm:pt-12 lg:-mt-8")}>
             <BlurFade inView>
-              <div className="flex flex-nowrap gap-0 px-4">
-                <h1 className="text-8xl sm:text-[18rem] text-primary">NITA</h1>
-                <h1 className="text-8xl sm:text-[18rem] text-primary">MUN</h1>
-              </div>
+              <h1 className="text-8xl sm:text-[18rem] text-transparent bg-clip-text bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600">NITAMUN</h1>
             </BlurFade>
             <BlurFade delay={0.12} inView>
               <h1 className="text-8xl sm:text-[18rem] bg-clip-text bg-gradient-to-b from-white via-grey-200 to-gray-500 text-transparent">2.0</h1>

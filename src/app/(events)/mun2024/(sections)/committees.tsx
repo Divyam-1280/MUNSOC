@@ -13,7 +13,7 @@ export default function Committees() {
       <BlurFade inView>
         <h1 className="text-5xl sm:text-6xl tracking-tighter">Engage with the 4 committees</h1>
       </BlurFade>
-      <div className="flex max-lg:flex-col justify-center items-center lg:items-stretch lg:flex-wrap pt-10 lg:pt-20 gap-4">
+      <div className="flex max-lg:flex-col justify-center items-center lg:items-stretch lg:flex-wrap pt-10 lg:pt-20 gap-4 lg:gap-8">
         <BlurFade inView>
           <div className="flex items-center gap-x-4 bg-gradient-to-t from-black to-stone-800 border border-border px-3 rounded-xl w-fit pb-4">
             <Image className="size-24 sm:size-40" src={Disec} alt="DISEC" width={180} height={180} />
