@@ -9,7 +9,7 @@ import { bebas_neue } from "../fonts";
 
 export default function Committees() {
   return (
-    <section className="pt-14 max-lg:mb-11 sm:pt-28 h-dvh max-w-[1370px] w-full mx-auto max-lg:px-6">
+    <section className="pt-14 max-lg:mb-11 sm:pt-28 min-h-svh max-w-[1370px] w-full mx-auto max-lg:px-6 overflow-x-clip">
       <BlurFade inView>
         <h1 className="text-5xl sm:text-6xl tracking-tighter">Engage with the 4 committees</h1>
       </BlurFade>

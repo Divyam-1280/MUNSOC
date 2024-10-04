@@ -8,7 +8,7 @@ import { bebas_neue } from "../fonts"
 export default function Prize() {
   const colors = { first: '#fff', second: '#ffa' }
   return (
-    <section className="lg:pt-14 sm:pt-20 h-dvh max-w-[1370px] w-full mx-auto max-lg:px-6 overflow-clip">
+    <section className="lg:pt-14 sm:pt-20 min-h-svh max-w-[1370px] w-full mx-auto max-lg:px-6 overflow-clip">
       <div className="flex flex-col items-center">
         <BlurFade inView>
           <h1 className="text-7xl lg:text-[10rem] tracking-tighter text-center">Prize pool of more than <b className="text-primary drop-shadow-xl shadow-primary">₹35000</b></h1>
@@ -17,7 +17,7 @@ export default function Prize() {
           <div className="flex pt-5 flex-wrap justify-center gap-8 ">
             <div className="flex items-center gap-x-4 max-w-sm border border-border py-3 px-6 rounded-lg  bg-gradient-to-tl from-background to-stone-800">
               <Image src={StarTrophy} width={128} height={128} alt="trophy" className="" />
-              <p className={cn(bebas_neue.className, "text-4xl text-wrap")}>
+              <p className={cn(bebas_neue.className, "max-sm:text-2xl text-4xl text-wrap")}>
                 Best Delegate<br />
                 <span className="text-muted-foreground">₹5000</span>
               </p>
@@ -27,7 +27,7 @@ export default function Prize() {
             </div>
             <div className="flex items-center gap-x-4 max-w-sm border border-border py-3 px-6 rounded-lg  bg-gradient-to-tl from-background to-stone-800">
               <Image src={StarTrophy} width={128} height={128} alt="trophy" className="" />
-              <p className={cn(bebas_neue.className, "text-4xl text-wrap")}>
+              <p className={cn(bebas_neue.className, "max-sm:text-2xl text-4xl text-wrap")}>
                 High Commendation<br />
                 <span className="text-muted-foreground">₹3000</span>
               </p>
@@ -37,7 +37,7 @@ export default function Prize() {
             </div>
             <div className="flex items-center gap-x-4 max-w-sm border border-border py-3 px-6 rounded-lg  bg-gradient-to-tl from-background to-stone-800">
               <Image src={StarTrophy} width={128} height={128} alt="trophy" className="" />
-              <p className={cn(bebas_neue.className, "text-4xl text-wrap")}>
+              <p className={cn(bebas_neue.className, "max-sm:text-2xl text-4xl text-wrap")}>
                 Special Mention<br />
                 <span className="text-muted-foreground">₹1000</span>
               </p>
