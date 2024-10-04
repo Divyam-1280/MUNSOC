@@ -16,7 +16,7 @@ export default function Hero() {
           <Transition>
             <Image src={Munsoc} height={720} width={720} alt="MUNSOC Logo" className="size-36 scale-105 mx-auto lg:mb-10" />
           </Transition>
-          <div className={cn(bebas_neue.className, "flex gap-x-14 flex-wrap justify-center max-sm:pt-12 lg:-mt-8")}>
+          <div className={cn(bebas_neue.className, "flex gap-x-14 max-sm:flex-col justify-center items-center -gap-y-2 max-sm:pt-12 lg:-mt-8")}>
             <BlurFade inView>
               <h1 className="text-8xl sm:text-[18rem] text-transparent bg-clip-text bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600">NITAMUN</h1>
             </BlurFade>
@@ -38,15 +38,15 @@ export default function Hero() {
           </div>
         </div>
         <BlurFade delay={0.24}>
-          <div className="max-lg:px-6 sm:grid grid-cols-2 max-w-[1320px] w-full">
+          <form target="_blank" action="https://unstop.com/conferences/nitamun-20-national-institute-of-technology-agartala-1171293?lb=elVMMz5n" className="max-lg:px-6 sm:grid grid-cols-2 max-w-[1320px] w-full">
             <div className="self-center">
               <p className="max-lg:hidden text-2xl sm:text-6xl tracking-tighter text-nowrap max-sm:text-center">Join the best of diplomatic minds.</p>
               <p className="text-xl sm:text-xl uppercase text-nowrap max-sm:text-center">December 13th - 14th @ Online</p>
             </div>
-            <button className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end rounded-2xl font-semibold backdrop-blur-xl hover:shadow-lg hover:shadow-stone-900 transition ease-in-out hover:scale-105 border-8 border-black/70">
+            <button type="submit" className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end rounded-2xl font-semibold backdrop-blur-xl hover:shadow-lg hover:shadow-stone-900 transition ease-in-out hover:scale-105 border-8 border-black/70">
               Register Now on Unstop
             </button>
-          </div>
+          </form>
         </BlurFade>
       </div>
     </section>

@@ -34,9 +34,11 @@ export default function Nitamun() {
         <BlurFade inView>
           <h1 className="text-5xl sm:text-6xl tracking-tighter font-bold lg:pl-11">So what&apos;s the wait for?</h1>
           <p className="text-3xl lg:text-4xl pt-11 tracking-tighter mb-6">Registration is open until <span className="text-primary font-bold">November 2nd EOD</span></p>
-          <button className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end rounded-2xl font-semibold backdrop-blur-xl hover:shadow-lg hover:shadow-stone-900 transition ease-in-out hover:scale-105 border-8 border-black/70">
-            Register Now on Unstop
-          </button>
+          <form target="_blank" action="https://unstop.com/conferences/nitamun-20-national-institute-of-technology-agartala-1171293?lb=elVMMz5n">
+            <button type="submit" className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:w-full max-sm:mt-3 max-sm:text-center px-3 py-2 sm:py-[30px] sm:px-12 max-sm:mx-auto uppercase text-xl justify-self-end rounded-2xl font-semibold backdrop-blur-xl hover:shadow-lg hover:shadow-stone-900 transition ease-in-out hover:scale-105 border-8 border-black/70">
+              Register Now on Unstop
+            </button>
+          </form>
         </BlurFade>
       </div>
     </section>
