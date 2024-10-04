@@ -35,7 +35,7 @@ export default async function Home() {
               Welcome to <span className="hover:text-primary">MUNSOC</span>
             </h1>
           </div>
-          <p className="text-[#F4F4F5] md:text-lg text-pretty text-center mt-3 cursor-default">
+          <div className="text-[#F4F4F5] md:text-lg text-pretty text-center mt-3 cursor-default">
             This is the official website of NIT Agartala&apos;s Model United
             Nations Club MUNSOC.
             <br />
@@ -44,7 +44,13 @@ export default async function Home() {
             <br />
             This growth firmly establishes us as one of the elite MUN Clubs in
             the North East and we are just getting started
-          </p>
+            <br />
+            <form action="/mun2024">
+              <button type="submit" className="bg-gradient-to-br from-amber-400 via-yellow-500 to-amber-600 text-black w-fit max-sm:mt-3 max-sm:text-center mt-6 px-6 py-3 max-sm:mx-auto font-semibold justify-self-end rounded-full backdrop-blur-xl hover:shadow-lg hover:shadow-stone-900 transition ease-in-out hover:scale-105 border-8 border-black/70">
+                Announcing NITAMUN
+              </button>
+            </form>
+          </div>
         </Transition>
       </div>
       <main className="lg:text-center h-dvh relative">
