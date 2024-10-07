@@ -10,7 +10,7 @@ import Unstop from "../assets/Unstop-Logo-White-Medium.png"
 export default function Hero() {
   return (
     <section className="h-svh overflow-x-clip">
-      <Image src={Bg} width={1920} height={1080} alt="bg" className="z-0 absolute h-svh object-cover object-left" />
+      <Image priority src={Bg} width={1920} height={1080} alt="bg" className="z-0 absolute h-svh object-cover object-left" />
       <div className="h-full pt-14 flex flex-col justify-between items-center pb-6 backdrop-grayscale bg-background/65 bg-center">
         <div>
           <Transition>
@@ -33,7 +33,7 @@ export default function Hero() {
           </div>
           <div className="uppercase text-center px-6 sm:-translate-y-16 lg:text-xl">
             <BlurFade delay={0.2}>
-              Northeast&apos;s biggest online MUN conference
+              India&apos;s largest online MUN conference
             </BlurFade>
           </div>
         </div>
