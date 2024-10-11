@@ -40,7 +40,7 @@ const navbarItems = [
     icon: LuBookOpen,
   },
   {
-    href: "/mun2024",
+    href: "/nitamun",
     name: "NITAMUN",
     icon: IoSparklesSharp,
   }
