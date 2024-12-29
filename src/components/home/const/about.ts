@@ -1,17 +1,16 @@
-import Chai from "@/assets/Chai.jpg";
 import Varun from "@/assets/varun.jpg";
 import Divyam from "@/assets/divyam.jpg";
-import Priyanshu from "@/assets/priyanshu.jpg";
 import Harish from "@/assets/HarishS.jpg";
 import Rudransh from "@/assets/rudransh3.jpeg";
 import Harshita from "@/assets/harshita3.jpeg";
 import Tushit from "@/assets/tushit3.jpeg";
 import Neha from "@/assets/neha3.jpeg";
+import Siddhant from "@/assets/siddhant_img.jpeg";
 
 const about = [
   {
-    Img: Chai,
-    Name: "Chaitanya Raj",
+    Img: Divyam,
+    Name: "Divyam Raj Singh",
     Position: "Secretary General",
   },
   {
@@ -20,14 +19,9 @@ const about = [
     Position: "Deputy Secretary General",
   },
   {
-    Img: Priyanshu,
-    Name: "Priyanshu Das",
+    Img: Siddhant,
+    Name: "Siddhant Raj",
     Position: "Charge D' affaires",
-  },
-  {
-    Img: Divyam,
-    Name: "Divyam Raj Singh",
-    Position: "Director of Public Relations",
   },
   {
     Img: Harish,
