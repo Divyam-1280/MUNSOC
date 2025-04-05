@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/popover"
 import { Input } from "@/components/ui/input"
 import { UploadButton } from "./uploadthing";
-import { FaBold, FaCode, FaImage, FaItalic, FaListOl, FaListUl, FaQuoteLeft, FaRedo, FaRedoAlt, FaStrikethrough, FaUnderline, FaUndo } from "react-icons/fa";
+import { FaBold, FaCode, FaImage, FaItalic, FaListOl, FaListUl, FaQuoteLeft, FaRedo, FaStrikethrough, FaUnderline, FaUndo } from "react-icons/fa";
 
 
 export default function EditorMenu({ editor }: { editor: Editor }) {

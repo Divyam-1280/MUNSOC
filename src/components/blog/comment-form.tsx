@@ -4,7 +4,7 @@ import { AuthSession } from "@/server/auth/utils"
 import { Button } from "../ui/button"
 import { Textarea } from "../ui/textarea"
 import { postComment } from "@/server/actions/commentActions"
-import { useFormState, useFormStatus } from "react-dom"
+import { useFormStatus } from "react-dom"
 import { useRef } from "react"
 
 export default function CommentForm({ session, postSlug }: { session: AuthSession, postSlug: string }) {

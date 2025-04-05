@@ -7,8 +7,7 @@ import { useFieldArray, useForm } from "react-hook-form"
 import { AuthSession } from "@/server/auth/utils"
 import { Input } from "../ui/input"
 import { Button } from "../ui/button"
-import { updateUser } from "@/server/actions/authActions"
-import { useFormState, useFormStatus } from "react-dom"
+import { useFormStatus } from "react-dom"
 import { Textarea } from "../ui/textarea"
 
 import {

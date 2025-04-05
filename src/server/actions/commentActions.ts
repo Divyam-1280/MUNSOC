@@ -116,12 +116,11 @@ export async function deleteCommentById(formData: FormData) {
   const validId = schema.safeParse(id)
   if (!validId.success) return
 
-  const data = await db
+  await db
     .delete(comments)
     .where(eq(comments.uuid, validId.data))
 
-  revalidatePath(`/blog`) // idk if doing this is considered good practice, maybe getting specific page is better
-  return data
+  revalidatePath(`/blog`)
 }
 
 export async function postComment(

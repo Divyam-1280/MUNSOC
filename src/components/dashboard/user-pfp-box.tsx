@@ -1,5 +1,5 @@
 import { getUserById } from "@/server/actions/blogActions";
-import { AuthSession, getUserAuth } from "@/server/auth/utils";
+import { getUserAuth } from "@/server/auth/utils";
 import Image from "next/image";
 
 export default async function UserPfpBox() {

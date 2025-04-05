@@ -20,7 +20,7 @@ type Props = {
 };
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { params }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const [post] = await getPostBySlug(params.slug)
@@ -110,6 +110,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
     isLiked = await isAlreadyLiked(blogData[0].slug, session.user.id)
 
   const postUrl = `${env.LUCIA_AUTH_URL}/blog/${blogData[0].slug}`
+
+  async function handleFeedback() {
+    isLiked && removeLike || likePost
+  }
+
   return (
     <>
       <main className="max-w-7xl mx-auto mt-8 sm:mt-24">
@@ -122,7 +127,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           </div>
           <div className="flex sm:justify-center items-center gap-x-4 text-muted-foreground">
             {session &&
-              <form className="" action={isLiked && removeLike || likePost}>
+              <form className="" action={handleFeedback}>
                 <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
                 <input hidden readOnly aria-hidden name="user_id" value={session?.user.id} />
                 <Button type="submit" variant="ghost" className="px-2 space-x-2">
@@ -177,7 +182,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <span className="w-full border-t border-border" />
           </div>
           {session &&
-            <form className="text-muted-foreground gap-x-4" action={isLiked && removeLike || likePost}>
+            <form className="text-muted-foreground gap-x-4" action={handleFeedback}>
               <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
               <input hidden readOnly aria-hidden name="user_id" value={session.user.id} />
               <Button type="submit" variant="ghost" className="px-2 space-x-2">

@@ -22,11 +22,10 @@ import { toast } from "sonner";
 import { publishAction, updatePost } from "@/server/actions/blogActions";
 import { useEditorContentStore } from "@/store/editorContent";
 import { useSubmitToggleStore } from "@/store/canSubmit";
-import { Label } from "../ui/label";
 import { UploadButton } from "./uploadthing";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { cn, dateFormatter } from "@/lib/utils";
+import { useState } from "react";
+import { dateFormatter } from "@/lib/utils";
 import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import { usePathname } from "next/navigation";
 

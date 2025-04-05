@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import { getUserAuth } from "@/server/auth/utils";
 import SheetMenu from "./sheet-menu";
 import ThemeDropdown from "./ThemeDropdown";
-import { LuSearch } from "react-icons/lu";
 import { Button } from "../ui/button";
 import Image from "next/image";
 
