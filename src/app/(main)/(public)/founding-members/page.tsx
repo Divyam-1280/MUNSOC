@@ -104,7 +104,7 @@ export default function Page() {
           </div>
         </div>
         <p>
-          A group of committed initial members supported the founding team in shaping MUNSOC's early journey. Their enthusiasm and efforts helped turn ideas into action and set the foundation for the club’s growth.
+          A group of committed initial members supported the founding team in shaping MUNSOC&apos;s early journey. Their enthusiasm and efforts helped turn ideas into action and set the foundation for the club’s growth.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {members.map((member) => (
