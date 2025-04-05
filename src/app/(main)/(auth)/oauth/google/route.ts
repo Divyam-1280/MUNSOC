@@ -1,4 +1,4 @@
-import { googleOauth } from "@/server/auth/lucia";
+import { googleOauth } from "@/server/auth";
 import { generateCodeVerifier, generateState } from "arctic";
 import { cookies } from "next/headers";
 

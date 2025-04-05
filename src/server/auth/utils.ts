@@ -1,10 +1,7 @@
 import { redirect } from 'next/navigation'
-import { cookies } from 'next/headers'
 
-import { type Cookie } from 'lucia'
-
-import { validateRequest } from './lucia'
 import { NameAndUsernameAndPassword, UsernameAndPassword, authenticationSchema, signUpSchema } from '../db/schema/auth'
+import { validateRequest } from '.'
 
 export type AuthSession = {
   session: {
@@ -24,7 +21,7 @@ export const getUserAuth = async (): Promise<AuthSession> => {
       user: {
         id: user.id,
         email: user.email,
-        name: user.name,
+        name: user.name ?? "",
       },
     },
   }
@@ -36,11 +33,6 @@ export const checkAuth = async () => {
 }
 
 export const genericError = { error: 'Error, please try again.' }
-
-export const setAuthCookie = (cookie: Cookie) => {
-  cookies().set(cookie.name, cookie.value, cookie.attributes); // <- suggested approach from the docs, but does not work with `next build` locally
-  // cookies().set(cookie);
-}
 
 const getErrorMessage = (errors: any): string => {
   if (errors.email) return 'Invalid Email'

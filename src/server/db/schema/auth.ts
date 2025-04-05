@@ -1,3 +1,4 @@
+import { InferSelectModel } from "drizzle-orm";
 import { boolean, pgTable, text, timestamp } from "drizzle-orm/pg-core";
 import { z } from "zod";
 
@@ -52,3 +53,6 @@ export type UsernameAndPassword = z.infer<typeof authenticationSchema>;
 
 export type SelectUsers = typeof users.$inferSelect
 export type InsertUsers = typeof users.$inferInsert
+
+export type Session = InferSelectModel<typeof sessions>
+export type User = InferSelectModel<typeof users>
