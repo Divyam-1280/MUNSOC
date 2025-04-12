@@ -55,5 +55,4 @@ export default async function Header() {
 }
 
 function getUserAuth() {
-  throw new Error("Function not implemented.");
 }

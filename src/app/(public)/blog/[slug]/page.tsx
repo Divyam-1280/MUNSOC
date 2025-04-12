@@ -98,14 +98,14 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </>
     )
 
-  const { session } = await getUserAuth()
+  // const { session } = await getUserAuth()
   const [author] = await getUserById(blogData[0].authorId)
   const blogContent = DOMPurify.sanitize(blogData[0].content)
   const commentData = await getCommentsByPostId(blogData[0].slug)
   const likes = await getLikesByPost(blogData[0].slug)
   let isLiked = false
-  if (session)
-    isLiked = await isAlreadyLiked(blogData[0].slug, session.user.id)
+  // if (session)
+  //   isLiked = await isAlreadyLiked(blogData[0].slug, session.user.id)
 
   const postUrl = `${env.LUCIA_AUTH_URL}/blog/${blogData[0].slug}`
 
@@ -123,8 +123,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div className="text-muted-foreground text-sm">
             By {author.name} | Published on {blogData[0].publishedAt.toLocaleString('en-US', { day: '2-digit', month: 'short', year: 'numeric' })}
           </div>
-          <div className="flex sm:justify-center items-center gap-x-4 text-muted-foreground">
-            {session &&
+          <div className="hidden sm:justify-center items-center gap-x-4 text-muted-foreground">
+            {/*session &&
               <form className="" action={handleFeedback}>
                 <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
                 <input hidden readOnly aria-hidden name="user_id" value={session?.user.id} />
@@ -147,7 +147,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 </PopoverTrigger>
                 <PopoverContent><Link href="/sign-in" className="underline font-semibold underline-offset-4 hover:decoration-2 decoration-primary/85">Sign in</Link> to like blog posts</PopoverContent>
               </Popover>
-            }
+            */}
             <Button type="button" variant="ghost" className="px-2" asChild>
               <a href="#comments" className="space-x-2 flex items-center">
                 <FaComment size={18} />
@@ -179,7 +179,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           <div className="inset-0 flex items-center">
             <span className="w-full border-t border-border" />
           </div>
-          {session &&
+          {/*session &&
             <form className="text-muted-foreground gap-x-4" action={handleFeedback}>
               <input hidden readOnly aria-hidden name="post_slug" value={blogData[0].slug} />
               <input hidden readOnly aria-hidden name="user_id" value={session.user.id} />
@@ -192,7 +192,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 <span className="pt-1">{likes}</span>
               </Button>
             </form>
-          }
+          */}
           <div className="mx-auto pb-4 flex items-center gap-x-4 text-black dark:text-white">
             Share this:
             <Link target="_blank" href={`https://twitter.com/intent/post?text=${blogData[0].title}&url=${postUrl}`} className="border border-border p-2 rounded-md hover:bg-secondary">
@@ -220,7 +220,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
               </Link>
             </Button>
           */}
-          <ul className="mt-4 space-y-4">
+          {
+            /*
+          <ul className="mt-4 space-y-4 hidden">
             {commentData.map((item) => (
               <CommentCard
                 key={item.comments.id}
@@ -232,11 +234,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
               </CommentCard>
             ))}
           </ul>
+             */
+          }
         </div>
       </main>
     </>
   )
-}
-function getUserAuth(): { session: any } | PromiseLike<{ session: any }> {
-  throw new Error("Function not implemented.")
 }

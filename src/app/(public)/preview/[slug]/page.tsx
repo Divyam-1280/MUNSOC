@@ -79,7 +79,7 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const blogData = await getPostBySlug(params.slug)
-  const { session } = await getUserAuth()
+  // const { session } = await getUserAuth()
 
   if (blogData.length === 0 || blogData[0].isApproved)
     return (
@@ -122,7 +122,4 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </main>
     </>
   )
-}
-function getUserAuth(): { session: any } | PromiseLike<{ session: any }> {
-  throw new Error("Function not implemented.")
 }

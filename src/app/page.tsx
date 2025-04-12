@@ -1,8 +1,6 @@
 import AchievementCard from "@/components/home/AchievementCard";
-import Header from "@/components/layout/Header";
 import Image from "next/image";
 import achievements from "@/components/home/const/achievements";
-import TimelineElement from "@/components/home/timeline-element";
 import Timeline from "@/components/home/timeline";
 import HeaderLanding from "@/components/layout/HeaderLanding";
 import Documents from "@/components/home/Documents";
@@ -10,7 +8,6 @@ import about from "@/components/home/const/about";
 import CarouselCard from "@/components/home/CarouselCard";
 import houseDetails from "@/components/home/const/houseDetails";
 import HouseCard from "@/components/home/HouseCard";
-import { LuArrowRight } from "react-icons/lu";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import Transition from "@/components/motion/transition";
