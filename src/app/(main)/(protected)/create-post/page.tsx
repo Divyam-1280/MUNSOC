@@ -1,6 +1,5 @@
 import MetadataForm from "@/components/editor/metadata-form";
 import Tiptap from "@/components/editor/tiptap";
-import { getUserAuth } from "@/server/auth/utils";
 
 export default async function CreatePost() {
   const { session } = await getUserAuth()
@@ -17,4 +16,7 @@ export default async function CreatePost() {
         </div>
       </main>
     )
+}
+function getUserAuth(): { session: any; } | PromiseLike<{ session: any; }> {
+  throw new Error("Function not implemented.");
 }

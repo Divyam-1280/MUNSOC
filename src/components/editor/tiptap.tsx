@@ -7,7 +7,6 @@ import Image from '@tiptap/extension-image'
 import Underline from '@tiptap/extension-underline'
 
 import EditorMenu from './menu'
-import { AuthSession } from '@/server/auth/utils'
 import { InsertBlogs } from '@/server/db/schema/blog'
 import { useEditorContentStore } from '@/store/editorContent'
 import { useSubmitToggleStore } from '@/store/canSubmit'
@@ -16,7 +15,7 @@ import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight'
 import { common, createLowlight } from 'lowlight'
 
 export type EditorProps = {
-  session: AuthSession,
+  session: any,
   blogObj?: InsertBlogs,
 }
 

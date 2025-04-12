@@ -1,8 +1,11 @@
 "use client"
 
-import { signOutAction } from "@/server/actions/authActions"
 import { Button } from "../ui/button"
 import { useFormStatus } from "react-dom";
+
+async function signOutAction() {
+  throw new Error("Function not implemented.");
+}
 
 export default function SignOutButton() {
   const { pending } = useFormStatus();

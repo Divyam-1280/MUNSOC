@@ -1,13 +1,10 @@
 import UnapprovedBlogItem from "@/components/dashboard/unapproved-post"
-import { Button } from "@/components/ui/button"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { getAllPostsWithUser, getUserById } from "@/server/actions/blogActions"
-import { getUserAuth } from "@/server/auth/utils"
 import { SelectUsers } from "@/server/db/schema/auth"
 import { DotFilledIcon } from "@radix-ui/react-icons"
 import Link from "next/link"
-import { BsThreeDotsVertical } from "react-icons/bs"
-import { LuFilter, LuListFilter } from "react-icons/lu"
+import { LuListFilter } from "react-icons/lu"
 
 export default async function Page({
   searchParams
@@ -139,4 +136,7 @@ export default async function Page({
       </div>
     </>
   )
+}
+function getUserAuth(): { session: any } | PromiseLike<{ session: any }> {
+  throw new Error("Function not implemented.")
 }

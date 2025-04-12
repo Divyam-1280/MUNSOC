@@ -1,11 +1,9 @@
 import CommentCard from "@/components/blog/comment-card"
-import CommentForm from "@/components/blog/comment-form"
 import { Button } from "@/components/ui/button"
 import { env } from "@/env"
 import { getPostBySlug, getUserById } from "@/server/actions/blogActions"
 import { getCommentsByPostId } from "@/server/actions/commentActions"
 import { getLikesByPost, isAlreadyLiked, likePost, removeLike } from "@/server/actions/postLikeActions"
-import { getUserAuth } from "@/server/auth/utils"
 import DOMPurify from "isomorphic-dompurify"
 import { Metadata, ResolvingMetadata } from "next"
 import Image from "next/image"
@@ -211,19 +209,17 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </Link>
           </div>
         </div>
-        <div className="max-w-2xl mx-auto px-4 flex flex-col justify-start mb-3" id="comments">
+        <div className="hidden max-w-2xl mx-auto px-4 flex-col justify-start mb-3" id="comments">
           <span className="mb-4">
             Comments ({commentData.length})
           </span>
-          {session &&
-            <CommentForm session={{ session }} postSlug={params.slug} />
-            ||
+          {/*session &&
             <Button asChild>
               <Link href="/sign-in">
                 Sign in to comment
               </Link>
             </Button>
-          }
+          */}
           <ul className="mt-4 space-y-4">
             {commentData.map((item) => (
               <CommentCard
@@ -240,4 +236,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </main>
     </>
   )
+}
+function getUserAuth(): { session: any } | PromiseLike<{ session: any }> {
+  throw new Error("Function not implemented.")
 }

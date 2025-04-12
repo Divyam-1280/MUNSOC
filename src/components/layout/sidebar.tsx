@@ -1,9 +1,7 @@
 import { LuLogOut } from "react-icons/lu";
 import UserPfpBox from "../dashboard/user-pfp-box";
 import DashboardSidebarItems from "./dashboard-sidebar-items";
-import { getUserAuth } from "@/server/auth/utils";
 import { getUserById } from "@/server/actions/blogActions";
-import { signOutAction } from "@/server/actions/authActions";
 import { Button } from "../ui/button";
 
 export default async function Sidebar() {
@@ -27,4 +25,10 @@ export default async function Sidebar() {
       </div>
     </aside>
   )
+}
+function signOutAction() {
+  throw new Error("Function not implemented.");
+}
+function getUserAuth(): { session: any; } | PromiseLike<{ session: any; }> {
+  throw new Error("Function not implemented.");
 }

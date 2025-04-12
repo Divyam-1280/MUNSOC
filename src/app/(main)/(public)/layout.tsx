@@ -1,5 +1,4 @@
 import Header from "@/components/layout/Header";
-import { checkAuth } from "@/server/auth/utils";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

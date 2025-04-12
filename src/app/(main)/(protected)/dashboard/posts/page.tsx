@@ -1,7 +1,6 @@
 import BlogListItem from "@/components/dashboard/blog-list-item"
 import { Button } from "@/components/ui/button"
 import { getPostsByUserId, getRecentPosts } from "@/server/actions/blogActions"
-import { getUserAuth } from "@/server/auth/utils"
 import Link from "next/link"
 import { FaPen } from "react-icons/fa"
 
@@ -37,4 +36,7 @@ export default async function DashboardPostsPage() {
       </div>
     </>
   )
+}
+function getUserAuth(): { session: any } | PromiseLike<{ session: any }> {
+  throw new Error("Function not implemented.")
 }

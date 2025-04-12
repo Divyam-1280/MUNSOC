@@ -16,21 +16,19 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod";
 import { useForm } from "react-hook-form"
 import { useFormStatus } from "react-dom";
-import { AuthSession } from "@/server/auth/utils";
 import { InsertBlogs } from "@/server/db/schema/blog";
 import { toast } from "sonner";
 import { publishAction, updatePost } from "@/server/actions/blogActions";
 import { useEditorContentStore } from "@/store/editorContent";
 import { useSubmitToggleStore } from "@/store/canSubmit";
-import { UploadButton } from "./uploadthing";
 import Image from "next/image";
 import { useState } from "react";
 import { dateFormatter } from "@/lib/utils";
-import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "../ui/dialog";
 import { usePathname } from "next/navigation";
 
 export type MetadataFormProps = {
-  session: AuthSession,
+  session: any,
   blogObj?: InsertBlogs,
 }
 
@@ -224,18 +222,6 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
                       <FormItem className="flex items-baseline gap-x-3">
                         <FormLabel>Cover Image</FormLabel>
                         <FormControl>
-                          <UploadButton
-                            className="mt-4 ut-button:transition-all ut-button:border ut-button:border-border ut-button:bg-secondary/55 ut-button:text-sm ut-button:ut-readying:bg-secondary/55 ut-button:text-black dark:ut-button:text-white ut-button:hover:bg-secondary ut-uploading:ut-button:bg-secondary dark:ut-uploading:ut-button:bg-secondary"
-                            endpoint="imageUploader"
-                            onClientUploadComplete={(res) => {
-                              // Do something with the response
-                              setImageUrl(res[0].url)
-                            }}
-                            onUploadError={(error: Error) => {
-                              // Do something with the error.
-                              alert(`ERROR! ${error.message}`);
-                            }}
-                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -336,18 +322,6 @@ export default function MetadataForm({ session, blogObj }: MetadataFormProps) {
                   <FormItem className="flex items-baseline gap-x-3">
                     <FormLabel>Cover Image</FormLabel>
                     <FormControl>
-                      <UploadButton
-                        className="mt-4 ut-button:transition-all ut-button:border ut-button:border-border ut-button:bg-secondary/55 ut-button:text-sm ut-button:ut-readying:bg-secondary/55 ut-button:text-black dark:ut-button:text-white ut-button:hover:bg-secondary ut-uploading:ut-button:bg-secondary dark:ut-uploading:ut-button:bg-secondary"
-                        endpoint="imageUploader"
-                        onClientUploadComplete={(res) => {
-                          // Do something with the response
-                          setImageUrl(res[0].url)
-                        }}
-                        onUploadError={(error: Error) => {
-                          // Do something with the error.
-                          alert(`ERROR! ${error.message}`);
-                        }}
-                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

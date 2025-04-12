@@ -6,20 +6,13 @@ import {
 } from "@/components/ui/sheet"
 import { HamburgerMenuIcon } from "@radix-ui/react-icons"
 import Link from "next/link"
-import { LuLayoutDashboard, LuLogIn, LuLogOut } from "react-icons/lu"
-import { getUserAuth } from "@/server/auth/utils"
-import UserPfpBox from "../dashboard/user-pfp-box"
 import Image from "next/image";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 import navbarItems from "../home/const/navbarItems";
 import ThemeDropdown from "./ThemeDropdown"
 import { cn } from "@/lib/utils"
-import SignOutButton from "../auth/SignOutButton"
-import { signOutAction } from "@/server/actions/authActions"
-import { Button } from "../ui/button"
 
 export default async function SheetMenu({ landingPage = false }: { landingPage?: boolean }) {
-  const session = await getUserAuth()
 
   return (
     <>
@@ -50,12 +43,12 @@ export default async function SheetMenu({ landingPage = false }: { landingPage?:
               {navbarItems.map((item, idx) => (
                 <Link key={idx} href={item.href} className="hover:bg-secondary px-4 py-2 flex justify-start items-center gap-x-4 "><item.icon />{item.name}</Link>
               ))}
-              {session.session?.user &&
+              {/*session.session?.user &&
                 <Link href="/dashboard" className="hover:bg-secondary px-4 py-2 flex justify-start items-center gap-x-4 "><LuLayoutDashboard />Dashboard</Link>
-              }
+              */}
             </div>
-            <div className=" space-y-4">
-              {session.session?.user
+            <div className="hidden space-y-4">
+              {/*session.session?.user
                 &&
                 <>
                   <div className="border-t pt-4">
@@ -78,7 +71,7 @@ export default async function SheetMenu({ landingPage = false }: { landingPage?:
                     </Link>
                   </div>
                 </div>
-              }
+              */}
             </div>
           </div>
         </SheetContent>

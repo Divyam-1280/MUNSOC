@@ -1,7 +1,5 @@
 import BlogListItem from "@/components/dashboard/blog-list-item"
-import UserDataForm from "@/components/dashboard/user-data-form"
 import { getPostsByUserId, getRecentPosts, getUserById } from "@/server/actions/blogActions"
-import { getUserAuth } from "@/server/auth/utils"
 
 export default async function DashboardAccountPage() {
   const { session } = await getUserAuth()
@@ -17,11 +15,11 @@ export default async function DashboardAccountPage() {
             <p className="text-muted-foreground text-sm">This is how others will see you on the site. Viewing others profile isn&apos;t possible right now but will be available in upcoming updates.</p>
           </div>
         </div>
-        <div>
-          <UserDataForm session={{ session }} userData={userData} />
-        </div>
       </div>
     </>
   )
 }
 
+function getUserAuth(): { session: any } | PromiseLike<{ session: any }> {
+  throw new Error("Function not implemented.")
+}

@@ -1,20 +1,16 @@
 import Header from "@/components/layout/Header";
 import { Toaster } from "@/components/ui/sonner";
-import { checkAuth } from "@/server/auth/utils";
-import { Metadata } from "next";
 
 export default async function AuthLayout({
-  children,
 }: {
   children: React.ReactNode;
 }) {
-  await checkAuth()
 
   return (
     <>
       <Header />
       <div className="mt-12">
-        {children}
+        Sorry we are currently in the process of migrating some dev stuff. It will take some time before you can actually create posts.
       </div>
       <Toaster />
     </>

@@ -1,12 +1,11 @@
 import { getUserById } from "@/server/actions/blogActions";
-import { getUserAuth } from "@/server/auth/utils";
 import Image from "next/image";
 
 export default async function UserPfpBox() {
   const { session } = await getUserAuth()
   if (!session) return null
 
-  const [userData] = await getUserById(session.user.id)
+  const [userData] = await getUserById(session?.user?.id)
   const initials = userData.name?.match(/(\b\S)?/g)?.join("").match(/(^\S|\S$)?/g)?.join("").toUpperCase()
   return (
     <div className="max-sm:text-sm w-full max-sm:tracking-tighter tracking-tight sm:px-1">
@@ -32,4 +31,7 @@ export default async function UserPfpBox() {
       </div>
     </div>
   )
+}
+function getUserAuth(): { session: any; } | PromiseLike<{ session: any; }> {
+  throw new Error("Function not implemented.");
 }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Navbar from "./Navbar";
-import { getUserAuth } from "@/server/auth/utils";
 import SheetMenu from "./sheet-menu";
 import ThemeDropdown from "./ThemeDropdown";
 import { Button } from "../ui/button";
@@ -34,7 +33,7 @@ export default async function Header() {
                 <ThemeDropdown landingPage />
               </div>
               <SheetMenu landingPage />
-              {session?.session &&
+              {/*session?.session &&
                 <Link
                   href="/dashboard"
                   className="text-sm max-lg:hidden font-medium text-[#F4F4F5]">
@@ -46,7 +45,7 @@ export default async function Header() {
                   className="text-sm max-lg:hidden font-medium text-[#F4F4F5]">
                   Sign In
                 </Link>
-              }
+              */}
             </div>
           </div>
         </div>
@@ -55,3 +54,6 @@ export default async function Header() {
   )
 }
 
+function getUserAuth() {
+  throw new Error("Function not implemented.");
+}

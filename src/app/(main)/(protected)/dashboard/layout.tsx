@@ -1,5 +1,4 @@
 import Sidebar from "@/components/layout/sidebar";
-import { checkAuth } from "@/server/auth/utils";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,7 +10,7 @@ export default async function AuthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  await checkAuth()
+  // await checkAuth()
 
   return (
     <>
@@ -22,4 +21,3 @@ export default async function AuthLayout({
     </>
   );
 }
-

@@ -1,6 +1,5 @@
 import SignOutButton from "@/components/auth/SignOutButton"
 import { getUserById } from "@/server/actions/blogActions"
-import { getUserAuth } from "@/server/auth/utils"
 import Link from "next/link"
 import { PiNotePencil, PiNotebookDuotone } from "react-icons/pi";
 import { LuBook, LuUserCog, LuUsers } from "react-icons/lu"
@@ -100,4 +99,7 @@ export default async function DashboardPage() {
       </div>
     </>
   )
+}
+function getUserAuth(): { session: any; } | PromiseLike<{ session: any; }> {
+  throw new Error("Function not implemented.");
 }
