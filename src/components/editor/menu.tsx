@@ -7,8 +7,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { Input } from "@/components/ui/input"
-import { UploadButton } from "./uploadthing";
-import { FaBold, FaCode, FaImage, FaItalic, FaListOl, FaListUl, FaQuoteLeft, FaRedo, FaRedoAlt, FaStrikethrough, FaUnderline, FaUndo } from "react-icons/fa";
+import { FaBold, FaCode, FaImage, FaItalic, FaListOl, FaListUl, FaQuoteLeft, FaRedo, FaStrikethrough, FaUnderline, FaUndo } from "react-icons/fa";
 
 
 export default function EditorMenu({ editor }: { editor: Editor }) {
@@ -47,7 +46,7 @@ export default function EditorMenu({ editor }: { editor: Editor }) {
                 </span>
               </div>
             </div>
-            <UploadButton
+            {/*<UploadButton
               className="my-ut"
               endpoint="imageUploader"
               onClientUploadComplete={async (res) => {
@@ -58,7 +57,7 @@ export default function EditorMenu({ editor }: { editor: Editor }) {
               onUploadError={(error: Error) => {
                 alert(`ERROR! ${error.message}`);
               }}
-            />
+            />*/}
           </div>
         </PopoverContent>
       </Popover>

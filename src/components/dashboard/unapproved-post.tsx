@@ -1,7 +1,7 @@
 "use client"
 
 import { SelectBlogs } from "@/server/db/schema/blog";
-import { LuCheck, LuEye, LuPencil } from "react-icons/lu";
+import { LuEye } from "react-icons/lu";
 import Link from "next/link";
 
 import {

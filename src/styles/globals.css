@@ -89,6 +89,27 @@ html.lenis, html.lenis body {
   border: solid 7px black;
 }
 
+.bg-munsoc-white {
+  background: linear-gradient(
+    to bottom right,
+    #ffffff,
+    #a7a7a7,
+    #ffffff,
+    #a7a7a7,
+    #ffffff,
+    #a7a7a7,
+    #ffffff,
+    #a7a7a7,
+    #ffffff
+  );
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  border: 7px solid #000;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0#ffd000);
+}
+
 .costum-line:before {
   background: #ffd000;
 }

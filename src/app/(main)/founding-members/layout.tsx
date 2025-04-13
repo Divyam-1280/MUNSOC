@@ -1,22 +1,23 @@
 import Header from "@/components/layout/Header";
-import { Toaster } from "@/components/ui/sonner";
-import { checkAuth } from "@/server/auth/utils";
 import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Founding Members • MUNSOC",
+  description: "Official website of Model United Nations Club of NIT Agartala, It is one of the most reputed MUN club in North East with various achievements under it's belt",
+};
 
 export default async function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  await checkAuth()
-
   return (
     <>
       <Header />
       <div className="mt-12">
         {children}
       </div>
-      <Toaster />
     </>
   );
 }
+

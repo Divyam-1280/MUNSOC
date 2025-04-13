@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { LuBook, LuLayoutDashboard, LuUser2, LuUserCog, LuUsers } from "react-icons/lu";
+import { LuBook, LuLayoutDashboard, LuUserCog, LuUsers } from "react-icons/lu";
 import { usePathname } from 'next/navigation'
 import { cn } from "@/lib/utils";
 import { PiNotebookDuotone } from "react-icons/pi";

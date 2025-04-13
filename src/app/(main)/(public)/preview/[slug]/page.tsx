@@ -1,19 +1,8 @@
-import CommentCard from "@/components/blog/comment-card"
-import CommentForm from "@/components/blog/comment-form"
-import { Button } from "@/components/ui/button"
-import { Label } from "@/components/ui/label"
-import { Skeleton } from "@/components/ui/skeleton"
-import { Textarea } from "@/components/ui/textarea"
 import { env } from "@/env"
 import { getPostBySlug, getUserById } from "@/server/actions/blogActions"
-import { getCommentsByPostId } from "@/server/actions/commentActions"
-import { getUserAuth } from "@/server/auth/utils"
-import { BadgeIcon } from "@radix-ui/react-icons"
 import DOMPurify from "isomorphic-dompurify"
 import { Metadata, ResolvingMetadata } from "next"
 import Image from "next/image"
-import Link from "next/link"
-import { BsFacebook, BsLinkedin, BsReddit, BsTwitterX } from "react-icons/bs"
 
 type Props = {
   params: { slug: string };
@@ -90,7 +79,7 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const blogData = await getPostBySlug(params.slug)
-  const { session } = await getUserAuth()
+  // const { session } = await getUserAuth()
 
   if (blogData.length === 0 || blogData[0].isApproved)
     return (
