@@ -96,7 +96,7 @@ export default function Page() {
           </div>
         </div>
         <p>
-          A group of committed initial members supported the founding team in shaping MUNSOC and early journey. Their enthusiasm and efforts helped turn ideas into action and set the foundation for the club’s growth. The club's initial members, who played a key role in shaping its foundation, are <b>Mouni Sanapala</b>, <b>Harish Saharan</b>, <b>Amitabh Anand</b>, <b>Tushit Dev Tripathi</b>, <b>Siddhant Raj</b>, <b>Anshuman Das</b>, <b>Rudransh Srivastava</b>, <b>Shivam Shekhar Soy</b>, <b>Neha Das</b>, and <b>Varun Kumawat</b>.
+          A group of committed initial members supported the founding team in shaping MUNSOC and early journey. Their enthusiasm and efforts helped turn ideas into action and set the foundation for the club’s growth. The club&apos;s initial members, who played a key role in shaping its foundation, are <b>Mouni Sanapala</b>, <b>Harish Saharan</b>, <b>Amitabh Anand</b>, <b>Tushit Dev Tripathi</b>, <b>Siddhant Raj</b>, <b>Anshuman Das</b>, <b>Rudransh Srivastava</b>, <b>Shivam Shekhar Soy</b>, <b>Neha Das</b>, and <b>Varun Kumawat</b>.
         </p>
       </article>
       <h2 className="text-2xl tracking-tighter font-bold py-6">
