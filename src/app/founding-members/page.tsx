@@ -1,35 +1,34 @@
 import Image from "next/image";
+import Divyam from "@/assets/divyam.jpeg"
+import Chaitanya from "@/assets/chaitanya.jpeg"
+import Gyanabati from "@/assets/gyanabati.jpeg"
+import Varun from "@/assets/varun.jpg"
+import Iitg from "@/assets/IITG.jpeg"
+import Bhuimg from "@/assets/bhuimg.jpg"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 export default function Page() {
   const founders = [
     {
       name: "Prof. Dr. Gyanabati Khuraijam",
-      role: "Faculty Advisor"
+      role: "Faculty Advisor",
+      img: Gyanabati
     },
     {
       name: "Chaitanya Raj",
-      role: "Founding Member"
+      role: "Founding Member",
+      img: Chaitanya
     },
     {
       name: "Divyam Raj Singh",
-      role: "Founding Member"
+      role: "Founding Member",
+      img: Divyam
     },
     {
       name: "Varun Srivastava",
-      role: "Founding Member"
+      role: "Founding Member",
+      img: Varun
     }
-  ];
-
-  const members = [
-    { name: "Mouni Sanapala", img: "" },
-    { name: "Harish Saharan", img: "" },
-    { name: "Tushit Dev Tripathi", img: "" },
-    { name: "Siddhant Raj", img: "" },
-    { name: "Anshuman Das", img: "" },
-    { name: "Rudransh Srivastava", img: "" },
-    { name: "Shivam Shekhar Soy", img: "" },
-    { name: "Neha Das", img: "" },
-    { name: "Varun Kumawat", img: "" }
   ];
 
   const events = [
@@ -49,16 +48,9 @@ export default function Page() {
     <main className="p-3 xl:max-w-7xl xl:min-w-2xl mx-auto">
       <header className="text-center mx-auto w-fit">
         <h1 className="text-3xl xl:text-6xl py-8 font-bold tracking-tighter text-pretty">
-          MUNSOC is bringing diplomacy to student life
+          <span className="text-primary">MUNSOC</span> is bringing diplomacy to student life
         </h1>
       </header>
-      <Image
-        alt="munsoc pic"
-        src="https://placehold.co/1280x720/png"
-        height={1280}
-        width={720}
-        className="mx-auto w-full object-cover rounded-lg my-2"
-      />
       <h2 className="text-2xl tracking-tighter font-bold py-6">
         Building a Legacy of Diplomacy and Deliberation at NIT Agartala
       </h2>
@@ -85,14 +77,14 @@ export default function Page() {
             {founders.map((founder) => (
               <div key={founder.name} className="p-1 space-y-3">
                 <Image
-                  alt="munsoc pic"
-                  src="https://placehold.co/720x720/png"
+                  alt={founder.name}
+                  src={founder.img}
                   height={720}
                   width={720}
-                  className="mx-auto aspect-square object-cover rounded-lg xl:size-72"
+                  className="mx-auto aspect-square object-cover rounded-lg xl:size-72 shadow-xl"
                 />
                 <div>
-                  <span className="font-semibold">
+                  <span className="font-semibold text-foreground">
                     {founder.name}
                   </span><br />
                   <span className="text-sm">
@@ -104,35 +96,17 @@ export default function Page() {
           </div>
         </div>
         <p>
-          A group of committed initial members supported the founding team in shaping MUNSOC&apos;s early journey. Their enthusiasm and efforts helped turn ideas into action and set the foundation for the club’s growth.
+          A group of committed initial members supported the founding team in shaping MUNSOC&apos;s early journey. Their enthusiasm and efforts helped turn ideas into action and set the foundation for the club’s growth. The club's initial members, who played a key role in shaping its foundation, are <b>Mouni Sanapala</b>, <b>Harish Saharan</b>, <b>Tushit Dev Tripathi</b>, <b>Siddhant Raj</b>, <b>Anshuman Das</b>, <b>Rudransh Srivastava</b>, <b>Shivam Shekhar Soy</b>, <b>Neha Das</b>, and <b>Varun Kumawat</b>.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {members.map((member) => (
-            <div key={member.name} className="p-1 space-y-3">
-              <Image
-                alt="munsoc pic"
-                src="https://placehold.co/720x720/png"
-                height={720}
-                width={720}
-                className="mx-auto aspect-square object-cover rounded-lg xl:size-72"
-              />
-              <div>
-                <span className="font-semibold">
-                  {member.name}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
       </article>
       <h2 className="text-2xl tracking-tighter font-bold py-6">
-        The Students and Mentors Who Sparked the MUNSOC Legacy
+        Our Flagship Events
       </h2>
       <article className="space-y-6 dark:text-[#D0D6E0]">
         <p>
-          MUNSOC proudly hosts events that bring together students passionate about diplomacy, debate, and international affairs. Our flagship conferences — KACE and NITAMUN — serve as platforms for meaningful dialogue, strategic thinking, and real-world problem-solving. Through these events, we aim to cultivate a culture of global awareness, sharpen public speaking and negotiation skills, and empower students to become confident and informed leaders.
+          MUNSOC proudly hosts events that bring together students passionate about diplomacy, debate, and international affairs. Our flagship conferences — <b>KACE</b> and <b>NITAMUN</b> — serve as platforms for meaningful dialogue, strategic thinking, and real-world problem-solving. Through these events, we aim to cultivate a culture of global awareness, sharpen public speaking and negotiation skills, and empower students to become confident and informed leaders.
         </p>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className=" md:grid-cols-2 gap-8 hidden">
           {events.map((event) => (
             <div key={event.title} className="border border-border rounded-lg p-3 space-y-2">
               <Image
@@ -143,7 +117,7 @@ export default function Page() {
                 className="aspect-video object-cover rounded-lg"
               />
               <div>
-                <span className="text-xl font-semibold">{event.title}</span><br />
+                <span className="text-xl font-semibold text-foreground">{event.title}</span><br />
                 <span className="text-sm text-muted-foreground">{event.subtitle}</span>
               </div>
             </div>
