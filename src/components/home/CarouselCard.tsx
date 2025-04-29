@@ -14,12 +14,12 @@ function CarouselCard({
 }) {
   return (
     <InView>
-      <div className="my-slide w-64 rounded-lg ml-3 flex-col border-2 border-black carou-card cursor-default">
-        <div className="mx-auto w-44 mt-4">
+      <div className="my-slide w-64 rounded-lg ml-3 flex-col border-2 border-black carou-card cursor-default transition-transform duration-500 hover:scale-[1.02] hover:shadow-md">
+        <div className="mx-auto w-44 mt-4 h-52 overflow-hidden rounded-lg border-2 border-black">
           <img
             src={Img.src}
             alt={Name}
-            className="rounded-lg border-2 border-black"
+            className="w-full object-cover object-top h-full"
           />
         </div>
         <div className="flex w-full justify-center items-center text-lg mt-4 font-bold font-serif">
