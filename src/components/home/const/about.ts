@@ -1,52 +1,46 @@
-import Varun from "@/assets/varun.jpg";
-import Divyam from "@/assets/divyam.jpg";
-import Harish from "@/assets/HarishS.jpg";
-import Rudransh from "@/assets/rudransh3.jpeg";
-import Harshita from "@/assets/harshita3.jpeg";
-import Tushit from "@/assets/tushit3.jpeg";
-import Neha from "@/assets/neha3.jpeg";
-import Siddhant from "@/assets/siddhant_img.jpeg";
+import Sreejit from "../../../assets/Sreejit.jpeg"
+import Akshay from "../../../assets/Akshay.jpg"
+import Aman from "../../../assets/Aman.jpg"
+import Sangam from "../../../assets/Sangam.jpg"
+import Sourasnata from "../../../assets/Sourasnata.jpg"
+import Rayan from "../../../assets/Rayan.jpg"
+import Soham from "../../../assets/Soham Dey.jpg"
 
 const about = [
   {
-    Img: Divyam,
-    Name: "Divyam Raj Singh",
+    Img: Sreejit,
+    Name: "Sreejit Das",
     Position: "Secretary General",
   },
   {
-    Img: Varun,
-    Name: "Varun Srivastava",
+    Img: Soham,
+    Name: "Soham Dey",
     Position: "Deputy Secretary General",
   },
   {
-    Img: Siddhant,
-    Name: "Siddhant Raj",
+    Img: Akshay,
+    Name: "Akshay Kumar Jha",
     Position: "Charge D' affaires",
   },
   {
-    Img: Harish,
-    Name: "Harish Saharan",
-    Position: "Director of Finance Division",
+    Img: Rayan,
+    Name: "Rayan Chakraborty",
+    Position: "Director of PR and Marketing",
   },
   {
-    Img: Harshita,
-    Name: "Harshita Shankar",
+    Img: Sourasnata,
+    Name: "Sourasnata Debnath",
     Position: "Under Secretary General - 1",
   },
   {
-    Img: Rudransh,
-    Name: "Rudransh Srivastava",
+    Img: Aman,
+    Name: "Aman Kumar",
     Position: "Under Secretary General - 2",
   },
   {
-    Img: Tushit,
-    Name: "Tushit Dev",
+    Img: Sangam,
+    Name: "Sangam Kumari",
     Position: "Under Secretary General - 3",
-  },
-  {
-    Img: Neha,
-    Name: "Neha Das",
-    Position: "Under Secretary General - 4",
   },
 ];
 
