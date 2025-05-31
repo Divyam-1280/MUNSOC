@@ -1,6 +1,6 @@
 import Gokhale from "@/assets/Gokhale.png";
 import Jaishankar from "@/assets/Jaishankar.png";
-import Kamboj from "@/assets/kamboj.jpg";
+import Bajpai from "@/assets/Bajpai.png";
 import Menon from "@/assets/Menon.jpeg";
 
 const houseDetails = [
@@ -8,28 +8,28 @@ const houseDetails = [
     Img: Gokhale,
     Title: "Gokhale House",
     Des: "Embodying aggressive diplomacy, named in honor of the esteemed diplomat Vijay Keshav Gokhale. The Gokhale house strives for perfection",
-    Points: "15",
+    Points: "121",
     id: "Gokhale",
   },
   {
     Img: Jaishankar,
     Title: "Jaishankar House",
     Des: "Inspired by diplomat Subrahmanyam Jaishankar, fostering diplomacy, global understanding, and effective communication.",
-    Points: "40",
+    Points: "87",
     id: "Jaishankar",
   },
   {
-    Img: Kamboj,
-    Title: "Kamboj House",
-    Des: "It is a tribute to ruchira kamboj, embodies diplomacy, grace and global awareness. kamboj house has a legacy of excellence",
-    Points: "40",
-    id: "Kamboj",
+    Img: Bajpai,
+    Title: "Bajpai House",
+    Des: "It is a tribute to Girija Shankar Bajpai, embodies diplomacy, grace and global awareness. Bajpai house has a legacy of excellence",
+    Points: "61",
+    id: "Bajpai",
   },
   {
     Img: Menon,
     Title: "Menon House",
     Des: "Named in honour of Mr. Shivashankar Menon. This house advocates for more peaceful and prosperous world through diplomacy",
-    Points: "15",
+    Points: "13",
     id: "Menon",
   },
 ];
